@@ -5559,8 +5559,8 @@ if (state.profile.phone) fbReady.then(startOnline); else $("loginModal").classLi
   };
 
   try {
-    const db = getDatabase(initializeApp(firebaseConfig));
-    const el = document.getElementById("visit-count");
+    const db = getDatabase(initializeApp(firebaseConfig, "visitCounter"));
+    const  el = document.getElementById("visit-count");
     const visited = localStorage.getItem("aliman_visited");
     const counterRef = ref(db, "analytics/total_visits");
 
