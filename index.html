@@ -193,6 +193,37 @@ button{cursor:pointer;border:none}
 .cp-tabs button,.gtabs button,.atabs button{color:#444;transition:background .15s,color .15s,box-shadow .15s}
 .cp-tabs button small,.gtabs button small,.atabs button small{color:inherit}
 .ti{width:30px;height:30px;display:block}
+#clubSub{display:none;flex:1 1 100%;gap:6px;overflow-x:auto;scrollbar-width:none}
+#clubSub::-webkit-scrollbar{display:none}
+.chip.sub{flex:1 0 auto;padding:7px 12px;font-size:13px}
+.ti-mask{background:currentColor;-webkit-mask-image:var(--m);mask-image:var(--m);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain}
+.ti-like{--m:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFW0lEQVR42u2bbYgVVRjHfzN3djVXQ0llKwhbKdQoi17YoBKLNKkogkQIgopgJSiiDAraIIooMorKIosgAj/4IQops6IyKoTe6D0srJDelLRsld2de6cP8z/sYbwzd2Z37uy9c+8Dw7l39txzzvOc5+X/POcsdKlLXepSB1OljdZXAVwg6JTNcWLeu53AvGFyHfAl8AfwOnBeJwjBqP0aqfu7wOPAT4APrCi7EBwx9zXwkfW+F/gY2APMVD+nrLt/tnb/CjE5S+/P0vtr9d0rmwAMQ3cCo8A8S92Nyn8DvJJXFGtVO1oG7AUO6HtNa3XkE84X89WpmkGrCaCmdgD4tc4aA+A7YAEwN89w0yrOL5AZnAZ8G1mjAUD79W5OA7zQdgKoiMnVwHzLzoMIo71q/TJ6/9nAz8Anls3bDtIB7gWOWJHBKQvzxwBvA4flBKMaaj5/IDxQCjBkmO8HdgHjwMUxiRDAoEzi+jLgAMPUKUJ3fwHn1mHesb5/qijQ0+5I0KjuYuB34fxFMbtqmL9Zu7+yTVL5hswvBH4EdgMnxDBvHOFxwL/AlnZn3qizJ2f2N3Bygj0bRp+T5++3kqW2tvtnpc6DKZhfrr53RMJho6dlmb9BDN3UwJObXd4mM/EmYWqVVrP7ASUwL6Zkvl/CGlbfXiszjHsqWdCuU5Ddu0p0dsrbLwNGxFyQsK4+YIeyvwNWshRHZqxxFVQ2Am9a88fm33kIJ0hQfV85/gUCOof0vpYwlgP8B1wGXAOcmnJNgQS3EtgO3AfcX0SS5CbY/Rla2KMFh7FhzXvlZHa5oopMLQXj/0jtbJW3x/5c6G25tKFG+vq+MwmBOZonEHqsMlFRTkUrgO/1w3ENVu8Z17PHQmhRelgLOafg3e/RXI/J35DFB2xWe4uVpydJ+nbgaTm3k+ToPNnvBuAupbimjFVEuHU013xgLOsghyx7TUMPCtVBeIBhvPuo7NAsrGiAcrrW8HxWDagqP/f0+Am/99XX9FkAvAfcpkRnn7UbzaaZwJnKLQaBIWWPd2cVgKnP+SnKT74VtoxT/I3wSIukGJyz2leVTu+MON+LFE5zC3dpyCA2rwDmsbRrl4SwFngNWCo/RNECCDKGurxoTM52K3AV8A7wpEy06QJwrHY6szEXmKE1PKF8YklWH9CutQa3jn9KxB5lEkBg+QLTDimJ+qETBNAnqD2HsNa4DrgQuFG4prQCMCFwjZyfoSPA5QJmsaG4DLcsjLq/IfCzFni1DiymrAIwNCIcsBW4GngfeEGYpNYJAnCsEOgCLwmWL0zCI16JmLfVvcbE4WkiEvWmMGGrhcBo3nId4fW6fXkLwPaoFab3nN4kbUsJL1SNKRyuUlFngwo2sXUIbxIT1tT2KNeebthbJSy2PhRBfMOEVWE3KRV3M04WEFZ1dwN/qhIURMYpMhcwjG1W5WcJYRVrBDg2kqZPSQBG1fqAlwlvcG0hrLctUr7tRJyOV3AV6KAg7ybCs8QhFUiqeeAAI4BZwPGE93c26W/9msS1+o7KN4zpdxWrutSsp0cMQ3iRqjKVMH8QeEqDzFBrqqzPMFHz+0yTPqJJAb6QiayXY5pbsF9YLPPcnmaTvYT3Veux7W291H+eBTlda6wPlYhsVCHiMOHdn70cXZ3Ns2DiyQdcCvwC3JrG/OI6vKVMagdHl8UdaUjV2t1Vgp6rJYzZagckjEuEynqbWCWqSsjbCI/f91umm1kAJwIPEF5O9iP97DN4XwL6CrhHC0iatBkOMYiZM1UxtlkeOloeK6o+6FpxP8iy0HoDOWQ7vwsaSLyIcNgx/0/UpS51qUtdyoP+B/qEL77Wl+BnAAAAAElFTkSuQmCC)}
+.ti-dl{--m:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADGklEQVR42u2ay2sUQRCHv5mJBkNMBMFTwIMHD569iOCDIIKKUYwYBY2iED0oXsy/oCiImiD4QAmCCJ5EhfXxH3j0pvi6iQh6SKJhZ8dDfgPNsDub2ezO7LpVsMzOpKe76+uq6q7agImJiYmJSZ7i6ToAbANWJ57/9xLoehF4D5zXvV/EZIoYNNK1H/gFDBa5Gn6BY4eyhrBbAXjt4Ps+XS4GwAAYAANgAAyAATAABsAAGAADYAAMQPsD9Wly/aDZE67QugKHp/6jdgUQABs1Qa/JIDz1uwlY6TxrCwBxlXcP8BA43WQIgfobA+4Ak3lYQKOT/wscASYcd/CWqXwIHAVOAQvAXAPW42UFEGXwtVD9PAee6r1DwNllQkgqHwAl4HrG/lJ16anxfFK+dg2Yd3wwbRCAKbXdJwg+MO2AjhpQ/qTuXwFXqoyZFjNWAZeAP4l361rAMLADGFpiwImc/m4Bz7T6I8C5jJYQKz8GjDvKX16i8u58h4DtwK6sFjCrv0UZTS2GMKX7EX0Cgam3j7srP672bzIqnwQxB5SzAvAb3CFcCNNa+f1yCR+44ewa1cYsJ5R/m8HsaUSXnhYcWFwItxW5R7VNRsBNrYyfiNJlx+zjlV+u8nWlFQCSEO7r+6gsIQ6uZSdYRcAx4ITeKalNS5VvJYBqECpa4b3yyxVqUwEOKtoDvM5L+VYDcCcfAA8U4I4LwgLwA9gMbJE1lICreSmfVzocr3IAzOjT6yQ2HtBXhPJ51gMi58Q4I2tYozgwqH0+d+XzcIFq6XIAPBKQCeBFUcoXASDOHTzgMfAO+Oi4QpT3ZIoAgKPwh6JWPu8YUAtC4TXJoidQ6XYAGAAD0N4AOv3/dyPqlMRqAZhX1tZPC36MyEHidHtASddsVgCfdV4fVqQOOwxCqHnvlB5fajUMUixgK7Be3z+RUlZqQ+llsRR3QPd3gW9ZffwCcFgAvgK/O8gKBrR4fcATFktxmYJcXKY6A+wG1jrHZq9DXOAn8BK4R8pviktRZh2wIZE3tCuEOMcIlWR97/ZzQtefc0xMTExM0uQf7j2vuGinQucAAAAASUVORK5CYII=)}
+.ti-share{--m:url(data:image/png;base64,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)}
+.ti-cmt{--m:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFHElEQVR42u2aS4geRRDHfzPzxV2N8YEnJcR40rAYD0YXUcFXEB9EECUiSvCUBAKePfjGB3gx4kEEhURkURRvEiU+j4KC+zAnlQ0EDwFdTYzffvPNjIetZsty3jv7kfkyBc33dU93T1X1v6qrqwc66qijjs5h8kr0CaRf3CK5fCABoiYmajP5TSBgB7Ab2A5sVOMSM09RnRpj6tRPA7PAR8B3GX1Lac4HXhfoJy0tbyhZKiPgLWCvKCBWimiDX/PlNwDeFjkq0QMibGiEb0txPIdS31UVAd8At8okTptfAL8qOOXZY92VW4sP8MXrXwXcqRThizy3V2HmT4WABDjcMu9/2PC/lNWxl9F+gal/JRqfAIZnseA9YBn4GnhctW+sqgBLk6LJ4VmuAGeaE00HOknLTCBpWgFjS+OKgEpOowkl6q2xTMDkghRHUckxvtq64yYOaGUV4OUIn8aIn8NcIAIPM9rz3hNVeM+6I8Adka8FdgIXAz8CnwL9jODIBSuXA/cBW4BFGfNbhkCubQK4Xw5lS8BRYK6hIOx/FJpAYq9RmIP8y7KSOgydBaZSfIz7vxs4acacBB7OGTMlytVjhsBLpp/jb5/hP2xSAc52D6ikQyhlIG0/CyI8Y+83KB8RquLm2WGSMB5wiYTgiczvxji/cUCNWTcF7JP2DcLU+cBxZct6ZZbld3+K0j5Ugugxrv5BijD7zbwaAZGY0KTwtaGqAvwadp8AW4HNMj7ISEdNGy/vA9fJsyDFASby3DfOblqe+Rm7z2bhJymZ4GkkDuiblU/r309pC0siT9Mgx8m5bXcwqpxfLFpeBBbk/zCFIR/4TLX15NcdqsIUwT15rvsDHFE7gVbEUMbMCz+NJm6zfIC2550KAZFySokwHSgFuwDmCuCEUlSkBDshzz0zLpD5st511yidoN0GdwE/KWZOA+8Am5QXt2i7BvhSCRFJfVsKKt0cm4B3gb/Vu45J5mrk26AV6DzgRlmJLQXRoxZuCrhbxQxZJqnnuVKQNy3vtWMqK2AtkWAssBuo9LPeBZKMMe75ghS90nGGo/OU71ksGT6P5CwQGZtNSjii2PiFMgeoRG2F+jC05pufJk6Dda+g4hGN6fIBXUaoAQV4HQI6BLSKSvNbdhfoq/5p11Nejd0goPga3UuJB/LqPeFhea0aXDKR1EyDmvdGgKgZw/8fVRHwA3CbWqFHJMz9RR2GdLQ3kGTHkYIcnc757QHuUOd6T83p1ai7PMJW4GaDzO+ravBe6l2P36LgnaXsC4H3GO31+D11YHRQTRaKXfVNcfm5f6TvixnIcvVtgi6dE+w3XJZNzvBgHeHdCr6Skr9LKw4pzxqB9TnhQeB3RvfhRQi8moPIXB/gDjlPAe9Lynq7wFfTTaxcPafl4wK1Cs8Dz5i5Xf9vRclF+f2y+f9TrKTmP2b13qD2oSkoeD5nMrbPSfuk/F4GfKK2yNh45ofWeTco4r8wDoiUl06MZyUjIxyILV4v6Lla8ncOET3xA49JVido+LClcwvRemhVQ33BIMDB/AlJjyXKITl7P8TqFxs9Wk7zRgEvAE+bBKZLnw+BJ8ftHDKvBE2AMxn2fpzVr7SCtp8u00wgMqseq5U/ykq6eywgX0YB+sboNQX1gDGkOaMAB/m/gEdTgqGxo2OsXos74WclaHKQH8tskoPzIRN+zgAXjZO9FwUblwJvAp/z3y+yA85R8toG+aABgXtqrpiOOuqoo446ag39C1Zatg2Mvi/8AAAAAElFTkSuQmCC)}
+.vc-b{flex:none;display:flex;align-items:center;gap:6px;border:0;background:#e8efeb;color:#12201a;padding:9px 13px;border-radius:20px;font-size:14px;cursor:pointer}
+.vc-b.on{background:#1f8f5f;color:#fff}
+.vc-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:rgba(0,0,0,.5);border:0;color:#fff;font-size:26px;cursor:pointer}
+.vc-fs{position:absolute;right:10px;bottom:10px;width:38px;height:38px;border-radius:10px;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:20px;cursor:pointer;z-index:2}
+.vbig{position:fixed!important;inset:0;z-index:9999;aspect-ratio:auto!important;margin:0!important;border-radius:0!important;background:#000;display:flex;align-items:center}
+.vbig img,.vbig video{object-fit:contain!important;max-height:100%}
+.pc-btn{display:inline-flex;align-items:center;gap:5px;background:none;color:#555;padding:6px 8px;font-size:14px;font-weight:600;border-radius:10px}
+.pc-btn .ti{width:22px;height:22px}
+.ti-book{--m:url(data:image/png;base64,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)}
+.ti-music{--m:url(data:image/png;base64,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)}
+.gtabs.club{position:relative;justify-content:flex-start;overflow-x:auto;gap:2px;scrollbar-width:none}
+.gtabs.club::-webkit-scrollbar{display:none}
+.gtabs.club button{flex:0 0 auto;min-width:76px}
+.gtabs.club button small{white-space:nowrap}
+.gtabs.club button[data-g="stories"]{order:0}
+.gtabs.club button[data-g="admin"]{order:1}
+.gtabs.club button[data-g="members"]{order:2}
+.gtabs.club button[data-g="photo"]{order:3}
+.gtabs.club button[data-g="video"]{order:4}
+.gtabs.club button[data-g="book"]{order:5}
+.gtabs.club button[data-g="music"]{order:6}
+.gtabs.club button[data-g="sms"]{order:7}
 .cp-tabs button.on,.gtabs button.on,.atabs button.on{background:#e6f7d6;color:#2a9d0a;box-shadow:0 0 12px #5bd21a66}
 .cp-tabs button.on small,.gtabs button.on small,.atabs button.on small{font-weight:bold}
 .cp-tabs button:active,.gtabs button:active,.atabs button:active{background:#d2f2b4;color:#1f8a05}
@@ -274,7 +305,7 @@ img.fl{display:block;object-fit:cover;border-radius:5px;box-shadow:0 0 0 1px #88
 body{padding:15px}
 .app{height:calc(100dvh - 30px);border-radius:15px;box-shadow:0 3px 20px #00000010}
 }
-  /* LimeChat Translation */
+/* LimeChat Translation */
 .translation-result {
   display: none;
   margin-top: 9px;
@@ -323,6 +354,13 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
       <button type="button" class="chip" id="chipGroup">Группа</button>
       <button type="button" class="chip" id="chipMyClub">Мой клуб</button>
       <button type="button" class="chip" id="chipChannel">Клуб</button>
+      <div id="clubSub">
+        <button type="button" class="chip sub on" data-sub="list">Клубы</button>
+        <button type="button" class="chip sub" data-sub="photo">Фото</button>
+        <button type="button" class="chip sub" data-sub="video">Видео</button>
+        <button type="button" class="chip sub" data-sub="book">Книги</button>
+        <button type="button" class="chip sub" data-sub="music">Музыка</button>
+      </div>
     </div>
     <div class="contact-list" id="contactList"></div>
   </section>
@@ -405,6 +443,8 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
         <button data-g="admin"><svg class="ti" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="20.5"/><circle cx="24" cy="19" r="6.2"/><path d="M10.2 37.3C13 31.6 18.3 28.6 24 28.6s11 3 13.8 8.7"/></svg><small>Админ</small></button>
         <button data-g="photo"><svg class="ti" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 15.5h8.5l2.3-4.5h10.4l2.3 4.5H40a3.5 3.5 0 0 1 3.5 3.5v18a3.5 3.5 0 0 1-3.5 3.5H8A3.5 3.5 0 0 1 4.5 37V19A3.5 3.5 0 0 1 8 15.5z"/><circle cx="24" cy="28" r="8.2"/><circle cx="24" cy="28" r="4.2" fill="currentColor" stroke="none"/><circle cx="10.5" cy="21.5" r="1.4" fill="currentColor" stroke="none"/></svg><small>Фото</small></button>
         <button data-g="video"><svg class="ti" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="40" height="30" rx="9"/><path d="M19.5 17v14l12-7z"/></svg><small>Видео</small></button>
+        <button data-g="book" style="display:none"><span class="ti ti-mask ti-book" aria-hidden="true"></span><small>Книги</small></button>
+        <button data-g="music" style="display:none"><span class="ti ti-mask ti-music" aria-hidden="true"></span><small>Музыка</small></button>
         <button data-g="sms"><svg class="ti" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 5C13.5 5 5 12.6 5 22c0 3.9 1.5 7.5 4 10.3L6.8 41l8.9-2.2c2.5 1 5.3 1.5 8.3 1.5 10.5 0 19-7.6 19-17S34.5 5 24 5z"/><g fill="currentColor" stroke="none"><circle cx="15.5" cy="22.5" r="2.6"/><circle cx="24" cy="22.5" r="2.6"/><circle cx="32.5" cy="22.5" r="2.6"/></g></svg><small>Сообщения</small></button>
       </div>
       <div id="gContent" style="text-align:left"></div>
@@ -601,7 +641,32 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
   </div>
 
   <input type="file" id="clubPhotoInput" accept="image/*" style="display:none">
+  <input type="file" id="clubBookInput" accept=".pdf,.epub,.txt,.fb2,.doc,.docx,application/pdf,text/plain" style="display:none">
+  <input type="file" id="clubMusicInput" accept="audio/*" style="display:none">
   <input type="file" id="clubVidInput" accept="video/*" style="display:none">
+  <div class="modal" id="clubCmtModal">
+    <div class="modal-card">
+      <h3>Комментарии</h3>
+      <div id="clubCmtList" style="min-height:100px;max-height:42vh;overflow-y:auto"></div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <input id="clubCmtInput" type="text" maxlength="300" placeholder="Напиши комментарий" autocomplete="off" style="flex:1;min-width:0;border:1px solid #ddd;border-radius:12px;padding:10px 12px;font-size:15px">
+        <button type="button" class="primary-button" id="clubCmtSend" style="margin:0;width:auto;padding:0 18px">➤</button>
+      </div>
+      <div class="modal-actions">
+        <button class="secondary-button" id="clubCmtClose">Закрыть</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="clubShareModal">
+    <div class="modal-card">
+      <h3>Отправить друзьям</h3>
+      <div id="clubShareList" style="max-height:45vh;overflow-y:auto"></div>
+      <div class="modal-actions">
+        <button class="secondary-button" id="clubShareClose">Закрыть</button>
+        <button class="primary-button" id="clubShareSend">Отправить</button>
+      </div>
+    </div>
+  </div>
   <div class="modal" id="clubChoose">
     <div class="modal-card">
       <h3 id="ccTitle">Новая история</h3>
@@ -744,7 +809,7 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
 </div>
 
 <script>
-  (function () {
+(function () {
   function show(msg) {
     var d = document.createElement("div");
     d.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:99;background:#fee;color:#900;padding:8px;font:12px monospace;white-space:pre-wrap";
@@ -1056,7 +1121,7 @@ const normPhone = (v, c) => {
   d = c.code + d;
   return isKey(d) ? d : "";
 };
-  const LANGS_ALL = (() => {
+const LANGS_ALL = (() => {
   const all = `af|Африкаанс|za
 sq|Албанский|al
 am|Амхарский|et
@@ -1365,6 +1430,7 @@ function showView(viewId) {
   if (viewId === "contactsView") renderContacts();
   if (viewId === "profileView") updateHeader();
   if (viewId === "statusView") loadStories();
+  if (viewId !== "chatsView") stopClubVideo();
   if (viewId === "albumView") loadAlbum();
   if (viewId === "callsView") renderCalls();
 }
@@ -1465,7 +1531,10 @@ function makeGroupButton(g, preview) {
 
 let chatFilter = "";
 function renderChats() {
+  if (chatFilter === "channel" && clubSub === "video" && clubVidEl && clubVidEl.isConnected) return;
+  if (chatFilter === "channel") listenClubs();
   const list = $("contactList");
+  $("clubSub").style.display = chatFilter === "channel" ? "flex" : "none";
   list.replaceChildren();
   const q = $("chatSearch").value.trim().toLowerCase();
   const hit = id => q ? (state.messages[id] || []).slice().reverse().find(m => String(m.text).toLowerCase().indexOf(q) !== -1) : null;
@@ -1473,6 +1542,7 @@ function renderChats() {
   const prev = id => { const h = hit(id); return h ? "🔎 " + h.text : undefined; };
   let n = 0;
   if (chatFilter === "channel") {
+    if (clubSub !== "list") { drawClubSub(list, q); return; }
     listenClubs();
     const mine = {};
     state.groups.forEach(g => { mine[g.id] = 1; });
@@ -1674,8 +1744,8 @@ $("saveProfileButton").addEventListener("click", async function () {
   try { if (db) await saveRemote(); } catch (e) { alert("Не удалось сохранить на сервере."); return; }
   updateHeader();
   alert("Профиль сохранён! ❤️");
-});
-  $("addContactButton").addEventListener("click", openAddContact);
+}); 
+$("addContactButton").addEventListener("click", openAddContact);
 $("backButton").addEventListener("click", function () {
   state.activeContact = null;
   showView("chatsView");
@@ -1928,7 +1998,7 @@ $("cpMenuBtn").addEventListener("click", () => {
   $("cpBlock").textContent = isBlocked(cpId) ? "✅ Разблокировать" : "🚫 Заблокировать";
   $("cpMenu").classList.add("show");
 });
-$("closeCpMenu").addEventListener("click", () => $("cpMenu").classList.remove("show"));
+ $("closeCpMenu").addEventListener("click", () => $("cpMenu").classList.remove("show"));
 $("cpDelete").addEventListener("click", () => {
   $("cpMenu").classList.remove("show");
   state.activeContact = cpId;
@@ -2093,7 +2163,7 @@ function setupComments(base, it) {
   mvCmt = { base: base, addRow: addRow, inc: () => { count++; btn.textContent = "💬 " + count; } };
   return btn;
 }
-  $("mCmtForm").addEventListener("submit", e => {
+$("mCmtForm").addEventListener("submit", e => {
   e.preventDefault();
   const inp = $("mCmtInput");
   const text = inp.value.trim().slice(0, 300);
@@ -2928,8 +2998,8 @@ $("vidGo").addEventListener("click", () => {
     $("vidTime").textContent = fmtDur(sec) + " / " + fmtDur(lim);
     if (sec >= lim) finishVid();
   }, 250);
-});
-$("vidCancel").addEventListener("click", closeVid);
+}); 
+ $("vidCancel").addEventListener("click", closeVid);
 
 // --- кнопки меню вложений
 $("micBtn").addEventListener("click", startVoice);
@@ -3203,6 +3273,7 @@ $("sDel").addEventListener("click", () => {
   const s = sv.list[sv.i];
   remove(ref(db, s.path || ("stories/" + s.owner + "/" + s.key))).catch(() => {});
   if (s.t === "video") remove(ref(db, s.vpath || ("storyvid/" + s.owner + "/" + s.key))).catch(() => {});
+  if (s.fk && s.feedType) remove(ref(db, "clubfeed/" + s.feedType + "/" + s.fk)).catch(() => {});
   sv.list.splice(sv.i, 1);
   if (!sv.list.length) { closeStory(); return; }
   if (sv.i >= sv.list.length) sv.i = sv.list.length - 1;
@@ -3413,9 +3484,14 @@ function memberRow(g, p, noAction) {
 function renderGroupTab() {
   const g = gById(gcur);
   if (!g) return;
-  document.querySelector('.gtabs button[data-g="stories"]').style.display = g.type === "channel" ? "" : "none";
+  const isClub = g.type === "channel";
+  ["stories", "book", "music"].forEach(t => { document.querySelector('.gtabs button[data-g="' + t + '"]').style.display = isClub ? "" : "none"; });
+  document.querySelector(".gtabs").classList.toggle("club", isClub);
+  if (gtab !== "music") stopClubAudio();
   $("gJoinBtn").style.display = g.preview ? "" : "none";
   document.querySelectorAll(".gtabs button").forEach(b => b.classList.toggle("on", b.dataset.g === gtab));
+  const onTab = document.querySelector(".gtabs button.on"), tabsEl = document.querySelector(".gtabs");
+  if (isClub && onTab) tabsEl.scrollLeft = Math.max(0, onTab.offsetLeft - (tabsEl.clientWidth - onTab.offsetWidth) / 2);
   $("gAddMember").style.display = (g.admin === myKey() && gtab === "members" && g.type !== "channel") ? "" : "none";
   const box = $("gContent");
   box.replaceChildren();
@@ -3451,6 +3527,8 @@ function renderGroupTab() {
     } else act("🚪 Выйти из группы", "#a33", leaveGroup);
   } else if (gtab === "stories" && club) {
     renderClubMedia(box, g, "story");
+  } else if ((gtab === "book" || gtab === "music") && club) {
+    renderClubFiles(box, g, gtab);
   } else if (gtab === "photo") {
     if (club) renderClubMedia(box, g, "photo");
     else if (g.photo) { const grid = document.createElement("div"); grid.className = "grid"; const im = document.createElement("img"); im.src = g.photo; im.alt = ""; grid.appendChild(im); box.appendChild(grid); }
@@ -3533,7 +3611,7 @@ async function deleteGroup() {
   try {
     if (g.type === "channel") {
       await remove(ref(db, "clubs/" + g.id));
-      await Promise.all(["clubstory", "clubstoryv", "clubphoto", "clubvideo", "clubvideov"].map(b => remove(ref(db, b + "/" + g.id))));
+      await Promise.all(["clubstory", "clubstoryv", "clubphoto", "clubvideo", "clubvideov", "clubbook", "clubbookf", "clubmusic", "clubmusicf"].map(b => remove(ref(db, b + "/" + g.id))));
     }
     await Promise.all(g.members.map(p => remove(ref(db, "usergroups/" + p + "/" + g.id))));
     await remove(ref(db, "gchats/" + g.id));
@@ -3551,7 +3629,7 @@ async function leaveGroup() {
   } catch (e) { alert("Не удалось выйти из группы."); }
 }
 
-$("gBack").addEventListener("click", () => { const to = gBackTo || "chatsView"; gBackTo = null; gcur = null; clubPv = null; showView(to); });
+$("gBack").addEventListener("click", () => { stopClubAudio(); const to = gBackTo || "chatsView"; gBackTo = null; gcur = null; clubPv = null; showView(to); });
 document.querySelectorAll(".gtabs button").forEach(b => b.addEventListener("click", () => {
   if (b.dataset.g === "sms") { openGroupChat(); return; }
   gtab = b.dataset.g;
@@ -3838,7 +3916,9 @@ async function renderClubMedia(box, g, target) {
     x.canDel = adm;
     x.label = g.name;
     x.noViews = target !== "story";
+    x.feedType = target === "story" ? "" : target;
   });
+  if (adm && target !== "story") backfillFeed(g, target, base, items);
   hint.remove();
   if (!items.length) {
     const e = document.createElement("div");
@@ -3880,6 +3960,810 @@ async function renderClubMedia(box, g, target) {
   }
 }
 
+function thumbOf(src, size, q) {
+  return new Promise(res => {
+    const img = new Image();
+    img.onload = () => {
+      const r = Math.min(1, size / Math.max(img.width, img.height));
+      const c = document.createElement("canvas");
+      c.width = Math.max(1, Math.round(img.width * r));
+      c.height = Math.max(1, Math.round(img.height * r));
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      res(c.toDataURL("image/jpeg", q || 0.6));
+    };
+    img.onerror = () => res("");
+    img.src = src;
+  });
+}
+
+async function pushFeed(type, cid, k, extra) {
+  const r = push(ref(db, "clubfeed/" + type), Object.assign({ cid: cid, k: k, by: myKey(), ts: serverTimestamp() }, extra));
+  await r;
+  return r.key;
+}
+
+// старые материалы клуба (до появления общей ленты) добавляем в ленту, когда админ открывает вкладку
+async function backfillFeed(g, target, base, items) {
+  for (const x of items.filter(i => !i.fk).slice(0, 20)) {
+    try {
+      const extra = target === "photo" ? { th: await thumbOf(x.d, 420, 0.7), cap: x.cap || "" } : { th: x.th || "", dur: x.dur || 0, cap: x.cap || "" };
+      const r = push(ref(db, "clubfeed/" + target), Object.assign({ cid: g.id, k: x.key, by: x.by || "", ts: x.ts || Date.now() }, extra));
+      await r;
+      await set(ref(db, base + "/" + g.id + "/" + x.key + "/fk"), r.key);
+      x.fk = r.key;
+    } catch (e) {}
+  }
+}
+async function backfillFeedFiles(g, target, base, items) {
+  for (const x of items.filter(i => !i.fk).slice(0, 20)) {
+    try {
+      const r = push(ref(db, "clubfeed/" + target), { cid: g.id, k: x.key, ts: x.ts || Date.now(), title: x.title, size: x.size || 0, dur: x.dur || 0 });
+      await r;
+      await set(ref(db, base + "/" + g.id + "/" + x.key + "/fk"), r.key);
+      x.fk = r.key;
+    } catch (e) {}
+  }
+}
+
+// ---------- общие ленты клубов: Фото / Видео / Книги / Музыка ----------
+let clubSub = "list";
+const clubFeedCache = {}, clubFeedLoading = {};
+async function loadClubSub(sub) {
+  if (clubFeedLoading[sub] || !db) return;
+  listenClubs();
+  if (clubsState !== "ok") return;
+  clubFeedLoading[sub] = true;
+  try {
+    if ((sub === "photo" || sub === "video") && !myReactLoaded) {
+      try { myReact = (await get(ref(db, "clubmy/" + myKey()))).val() || {}; } catch (e) {}
+      myReactLoaded = true;
+    }
+    if (sub === "video" && !mySeenLoaded) {
+      try { mySeen = (await get(ref(db, "clubseen/" + myKey()))).val() || {}; } catch (e) {}
+      mySeenLoaded = true;
+    }
+    const sn = await get(query(ref(db, "clubfeed/" + sub), limitToLast(60)));
+    const byId = {};
+    clubsCache.forEach(c => { byId[c.id] = c; });
+    const items = [];
+    sn.forEach(ch => { const v = ch.val(); if (v && v.cid && v.k && byId[v.cid]) items.push(Object.assign({ fk: ch.key, type: sub, club: byId[v.cid] }, v)); });
+    items.sort((a, b) => (b.ts || 0) - (a.ts || 0));
+    clubFeedCache[sub] = { t: Date.now(), items: items, err: false };
+  } catch (e) {
+    clubFeedCache[sub] = { t: Date.now(), items: [], err: true };
+  }
+  clubFeedLoading[sub] = false;
+  if (currentView === "chatsView" && chatFilter === "channel" && clubSub === sub) renderChats();
+}
+
+let myReact = {}, myReactLoaded = false, mySeen = {}, mySeenLoaded = false;
+const joinedLocal = {}, uInfoCache = {};
+const isClubMember = id => !!joinedLocal[id] || state.groups.some(g => g.id === id);
+
+function userInfo(p, cb) {
+  if (!p) { cb({ name: "", photo: "" }); return; }
+  if (p === myKey()) { cb({ name: state.profile.name || "", photo: state.profile.photo || "" }); return; }
+  if (uInfoCache[p]) { cb(uInfoCache[p]); return; }
+  const ct = state.contacts.find(c => c.id === p);
+  get(ref(db, "users/" + p)).then(sn => {
+    const v = sn.val() || {};
+    const o = { name: String(v.name || (ct && ct.name) || ""), photo: typeof v.photo === "string" && /^data:image\//.test(v.photo) ? v.photo : "" };
+    uInfoCache[p] = o;
+    cb(o);
+  }).catch(() => cb({ name: ct ? ct.name : "", photo: "" }));
+}
+
+async function joinClubDirect(c) {
+  if (!db || isClubMember(c.id)) return;
+  const me = myKey();
+  try {
+    await set(ref(db, "groups/" + c.id + "/members/" + me), true);
+    await set(ref(db, "usergroups/" + me + "/" + c.id), true);
+    bumpClub(c.id, 1);
+    joinedLocal[c.id] = true;
+    if (currentView === "chatsView" && chatFilter === "channel") renderChats();
+  } catch (e) { alert("Не удалось вступить в клуб."); }
+}
+
+function pcBtn(icon, count, color) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "pc-btn";
+  const i = document.createElement("span");
+  i.className = "ti ti-mask " + icon;
+  const n = document.createElement("span");
+  b.append(i, n);
+  b.setIcon = (cnt, col, label) => { n.textContent = cnt === null ? (label || "") : (cnt > 0 ? String(cnt) : ""); b.style.color = col || "#555"; };
+  b.setIcon(count, color);
+  return b;
+}
+
+function buildPhotoCard(it) {
+  const c = it.club, fk = it.fk;
+  const card = document.createElement("div");
+  card.style.cssText = "border-bottom:8px solid #f0f2ef;padding-bottom:10px";
+  // 1) над фото: клуб (профиль, синее название, вступить)
+  const h = document.createElement("div");
+  h.style.cssText = "display:flex;align-items:center;gap:10px;padding:10px 12px";
+  const av = makeAvatar(c.th, c.name);
+  av.style.cursor = "pointer";
+  av.addEventListener("click", () => openClub(c));
+  const nm = document.createElement("strong");
+  nm.textContent = c.name;
+  nm.style.cssText = "flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#1a73e8;cursor:pointer";
+  nm.addEventListener("click", () => openClub(c));
+  h.append(av, nm);
+  if (isClubMember(c.id)) {
+    const tag = document.createElement("small");
+    tag.textContent = "✓ в клубе";
+    tag.style.cssText = "flex-shrink:0;color:#777;font-weight:700";
+    h.appendChild(tag);
+  } else {
+    const jb = document.createElement("button");
+    jb.type = "button";
+    jb.textContent = "Вступить";
+    jb.style.cssText = "flex-shrink:0;background:#1a73e8;color:#fff;border-radius:18px;padding:8px 16px;font-weight:700;font-size:14px";
+    jb.addEventListener("click", () => { jb.disabled = true; jb.style.opacity = ".6"; joinClubDirect(c); });
+    h.appendChild(jb);
+  }
+  card.appendChild(h);
+  // 2) фото (внутри карточки, без полного экрана)
+  const box = document.createElement("div");
+  box.style.cssText = "margin:0 12px;border-radius:14px;overflow:hidden;background:#eee";
+  if (okData(it.th, "image")) {
+    const im = document.createElement("img");
+    im.src = it.th;
+    im.alt = "";
+    im.style.cssText = "width:100%;display:block;max-height:380px;object-fit:cover";
+    box.appendChild(im);
+  } else box.style.minHeight = "160px";
+  card.appendChild(box);
+  if (it.cap) {
+    const cp = document.createElement("div");
+    cp.textContent = it.cap;
+    cp.style.cssText = "padding:8px 14px 0;color:#333";
+    card.appendChild(cp);
+  }
+  // 3) под фото: кто загрузил + жакты / жакпады / комментарий
+  const row = document.createElement("div");
+  row.style.cssText = "display:flex;align-items:center;gap:6px;padding:10px 12px 0";
+  const up = document.createElement("div");
+  up.style.cssText = "display:flex;align-items:center;gap:8px;flex:1;min-width:0";
+  const uav = makeAvatar("", "");
+  uav.style.cssText += ";width:30px;height:30px;font-size:14px;flex-shrink:0";
+  const un = document.createElement("span");
+  un.style.cssText = "overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;font-size:14px";
+  un.textContent = "…";
+  up.append(uav, un);
+  userInfo(it.by || c.admin, o => {
+    un.textContent = o.name || "Админ";
+    const nav = makeAvatar(o.photo, o.name);
+    nav.style.cssText += ";width:30px;height:30px;font-size:14px;flex-shrink:0";
+    uav.replaceWith(nav);
+  });
+  const bl = pcBtn("ti-like", 0), bd = pcBtn("ti-like", 0), bc = pcBtn("ti-cmt", 0);
+  bd.firstChild.style.transform = "scaleY(-1)";
+  const paint = () => {
+    const my = myReact[fk] || 0;
+    bl.setIcon(it.lk || 0, my === 1 ? "#1a73e8" : "#555");
+    bd.setIcon(it.dl || 0, my === -1 ? "#d93025" : "#555");
+    bc.setIcon(it.cm || 0, "#555");
+  };
+  paint();
+  bl.addEventListener("click", () => reactPhoto(it, 1, paint));
+  bd.addEventListener("click", () => reactPhoto(it, -1, paint));
+  bc.addEventListener("click", () => openClubComments(it, paint));
+  row.append(up, bl, bd, bc);
+  card.appendChild(row);
+  // 4) досторго жөнөтүү / жүктөп алуу
+  const row2 = document.createElement("div");
+  row2.style.cssText = "display:flex;gap:6px;padding:2px 12px 0;justify-content:flex-end";
+  const bs = pcBtn("ti-share", null);
+  bs.setIcon(null, "#555", "Друзьям");
+  const bdl = pcBtn("ti-dl", null);
+  bdl.setIcon(null, "#555", "Скачать");
+  bs.addEventListener("click", () => openClubShare(it));
+  bdl.addEventListener("click", () => downloadClubPhoto(it));
+  row2.append(bs, bdl);
+  card.appendChild(row2);
+  return card;
+}
+
+function reactPhoto(it, v, repaint) {
+  const cur = myReact[it.fk] || 0;
+  const next = cur === v ? 0 : v;
+  if (cur === 1) it.lk = Math.max(0, (it.lk || 0) - 1);
+  if (cur === -1) it.dl = Math.max(0, (it.dl || 0) - 1);
+  if (next === 1) it.lk = (it.lk || 0) + 1;
+  if (next === -1) it.dl = (it.dl || 0) + 1;
+  if (next) myReact[it.fk] = next; else delete myReact[it.fk];
+  repaint();
+  const fp = "clubfeed/" + it.type + "/" + it.fk + "/";
+  const bump = (f, d) => runTransaction(ref(db, fp + f), x => Math.max(0, (x || 0) + d)).catch(() => {});
+  if (cur === 1) bump("lk", -1);
+  if (cur === -1) bump("dl", -1);
+  if (next === 1) bump("lk", 1);
+  if (next === -1) bump("dl", 1);
+  set(ref(db, "clubmy/" + myKey() + "/" + it.fk), next || null).catch(() => {});
+}
+
+// ---- комментарии
+ let cmtCur = null;
+function openClubComments(it, repaint) {
+  cmtCur = { it: it, repaint: repaint };
+  $("clubCmtInput").value = "";
+  $("clubCmtModal").classList.add("show");
+  loadClubComments();
+}
+async function loadClubComments() {
+  const cur = cmtCur;
+  if (!cur) return;
+  const box = $("clubCmtList");
+  box.replaceChildren();
+  const say = t => { const e = document.createElement("div"); e.className = "empty"; e.textContent = t; box.appendChild(e); };
+  say("Загрузка…");
+  let rows = [];
+  try {
+    const sn = await get(query(ref(db, "clubcomm/" + cur.it.fk), limitToLast(100)));
+    sn.forEach(ch => { const v = ch.val(); if (v && v.text) rows.push(Object.assign({ key: ch.key }, v)); });
+  } catch (e) { box.replaceChildren(); say("Не удалось загрузить."); return; }
+  if (cmtCur !== cur) return;
+  box.replaceChildren();
+  if (!rows.length) { say("Комментариев пока нет. Будь первым!"); return; }
+  rows.forEach(r => {
+    const row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #eee";
+    const tx = document.createElement("div");
+    tx.style.cssText = "flex:1;min-width:0";
+    const nm = document.createElement("strong");
+    nm.textContent = r.name || ("+" + r.by);
+    nm.style.fontSize = "14px";
+    const tm = document.createElement("small");
+    tm.textContent = " · " + fmtTime(r.ts);
+    tm.style.color = "#888";
+    const t = document.createElement("div");
+    t.textContent = r.text;
+    t.style.cssText = "word-break:break-word";
+    tx.append(nm, tm, t);
+    row.appendChild(tx);
+    if (r.by === myKey()) {
+      const x = document.createElement("button");
+      x.type = "button";
+      x.textContent = "✖";
+      x.setAttribute("aria-label", "Удалить");
+      x.style.cssText = "background:#eee;border-radius:50%;width:30px;height:30px;color:#a33;flex-shrink:0";
+      x.addEventListener("click", () => {
+        remove(ref(db, "clubcomm/" + cur.it.fk + "/" + r.key)).catch(() => {});
+        runTransaction(ref(db, "clubfeed/" + cur.it.type + "/" + cur.it.fk + "/cm"), v => Math.max(0, (v || 0) - 1)).catch(() => {});
+        cur.it.cm = Math.max(0, (cur.it.cm || 0) - 1);
+        cur.repaint();
+        loadClubComments();
+      });
+      row.appendChild(x);
+    }
+    box.appendChild(row);
+  });
+  box.scrollTop = box.scrollHeight;
+}
+$("clubCmtSend").addEventListener("click", async () => {
+  const cur = cmtCur, text = $("clubCmtInput").value.trim();
+  if (!cur || !text || !db) return;
+  $("clubCmtInput").value = "";
+  try {
+    await push(ref(db, "clubcomm/" + cur.it.fk), { by: myKey(), name: state.profile.name || "", text: text.slice(0, 300), ts: serverTimestamp() });
+    runTransaction(ref(db, "clubfeed/" + cur.it.type + "/" + cur.it.fk + "/cm"), v => (v || 0) + 1).catch(() => {});
+    cur.it.cm = (cur.it.cm || 0) + 1;
+    cur.repaint();
+    loadClubComments();
+  } catch (e) { alert("Не удалось отправить комментарий."); }
+});
+$("clubCmtInput").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("clubCmtSend").click(); } });
+$("clubCmtClose").addEventListener("click", () => { cmtCur = null; $("clubCmtModal").classList.remove("show"); });
+
+// ---- досторго жөнөтүү / жүктөп алуу
+let shareCur = null;
+function openClubShare(it) {
+  const cs = state.contacts.filter(c => !isBlocked(c.id));
+  if (!cs.length) { alert("Сначала добавь контакты."); return; }
+  shareCur = it;
+  const list = $("clubShareList");
+  list.replaceChildren();
+  cs.forEach(c => {
+    const lab = document.createElement("label");
+    lab.style.cssText = "display:flex;align-items:center;gap:10px;padding:8px 2px;border-bottom:1px solid #eee";
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.value = c.id;
+    const nm = document.createElement("span");
+    nm.textContent = c.name;
+    lab.append(cb, nm);
+    list.appendChild(lab);
+  });
+  $("clubShareModal").classList.add("show");
+}
+$("clubShareClose").addEventListener("click", () => { shareCur = null; $("clubShareModal").classList.remove("show"); });
+$("clubShareSend").addEventListener("click", async () => {
+  const it = shareCur;
+  const ids = Array.from($("clubShareList").querySelectorAll("input:checked")).map(x => x.value);
+  if (!it || !db) return;
+  if (!ids.length) { alert("Выбери хотя бы одного друга."); return; }
+  const btn = $("clubShareSend");
+  btn.disabled = true;
+  try {
+    if (it.type === "video") {
+      const dv = (await get(ref(db, "clubvideov/" + it.cid + "/" + it.k + "/d"))).val();
+      if (!okData(dv, "video")) throw new Error("no video");
+      for (const id of ids) await sendRich(id, { type: "video", text: "🎬 Видео · " + it.club.name, dur: it.dur || 0 }, dv);
+    } else {
+      const d = (await get(ref(db, "clubphoto/" + it.cid + "/" + it.k + "/d"))).val();
+      if (!okData(d, "image")) throw new Error("no photo");
+      const th = await thumbOf(d, 160, 0.6);
+      for (const id of ids) await sendRich(id, { type: "photo", text: "🖼 Фото · " + it.club.name, th: th }, d);
+    }
+    shareCur = null;
+    $("clubShareModal").classList.remove("show");
+  } catch (e) { alert("Не удалось отправить."); }
+  btn.disabled = false;
+});
+
+async function downloadClubPhoto(it) {
+  try {
+    const d = (await get(ref(db, "clubphoto/" + it.cid + "/" + it.k + "/d"))).val();
+    if (!okData(d, "image")) throw new Error("no photo");
+    const a = document.createElement("a");
+    a.href = d;
+    a.download = "LimeChat-" + it.k + ".jpg";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  } catch (e) { alert("Не удалось скачать фото."); }
+}
+
+const fmtN = n => n >= 1000 ? (n / 1000).toFixed(1).replace(".", ",") + " тыс." : String(n);
+
+function buildVideoCard(it) {
+  const c = it.club, fk = it.fk;
+  const card = document.createElement("div");
+  card.style.cssText = "border-bottom:8px solid #f0f2ef;padding-bottom:4px";
+  // клуб: профиль, аты, катышуучулар, катталуу
+  const h = document.createElement("div");
+  h.style.cssText = "display:flex;align-items:center;gap:10px;padding:10px 12px";
+  const av = makeAvatar(c.th, c.name);
+  av.style.cursor = "pointer";
+  av.addEventListener("click", () => openClub(c));
+  const mid = document.createElement("div");
+  mid.style.cssText = "flex:1;min-width:0;cursor:pointer";
+  mid.addEventListener("click", () => openClub(c));
+  const nm = document.createElement("div");
+  nm.textContent = c.name;
+  nm.style.cssText = "font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap";
+  const sb = document.createElement("div");
+  sb.textContent = "участников: " + (c.count || 0);
+  sb.style.cssText = "font-size:12px;color:#6b7c73";
+  mid.append(nm, sb);
+  h.append(av, mid);
+  const jb = document.createElement("button");
+  jb.type = "button";
+  const paintJoin = () => {
+    const m = isClubMember(c.id);
+    jb.textContent = m ? "В клубе ✓" : "Вступить";
+    jb.style.cssText = "flex-shrink:0;border:0;font-weight:600;padding:8px 16px;border-radius:20px;font-size:14px;cursor:pointer;background:" + (m ? "#e8efeb" : "#1f8f5f") + ";color:" + (m ? "#12201a" : "#fff");
+  };
+  paintJoin();
+  jb.addEventListener("click", async () => { if (isClubMember(c.id)) return; jb.disabled = true; await joinClubDirect(c); paintJoin(); jb.disabled = false; });
+  h.appendChild(jb);
+  card.appendChild(h);
+  // видео 16:9
+  const box = document.createElement("div");
+  box.style.cssText = "position:relative;background:#000;aspect-ratio:16/9;overflow:hidden";
+  if (okData(it.th, "image")) {
+    const im = document.createElement("img");
+    im.src = it.th;
+    im.alt = "";
+    im.style.cssText = "width:100%;height:100%;object-fit:cover;display:block";
+    box.appendChild(im);
+  }
+  const dur = document.createElement("span");
+  dur.className = "vb";
+  dur.textContent = "▶ " + fmtDur(it.dur || 0);
+  const play = document.createElement("button");
+  play.type = "button";
+  play.className = "vc-play";
+  play.textContent = "▶";
+  const fs = document.createElement("button");
+  fs.type = "button";
+  fs.className = "vc-fs";
+  fs.textContent = "⛶";
+  fs.setAttribute("aria-label", "Чоңойтуу");
+  box.append(dur, play, fs);
+  fs.addEventListener("click", () => {
+    const big = box.classList.toggle("vbig");
+    fs.textContent = big ? "✕" : "⛶";
+    document.body.style.overflow = big ? "hidden" : "";
+  });
+  play.addEventListener("click", async () => {
+    play.textContent = "⏳";
+    try {
+      const d = (await get(ref(db, "clubvideov/" + it.cid + "/" + it.k + "/d"))).val();
+      if (!okData(d, "video")) throw new Error("no video");
+      stopClubVideo();
+      const v = document.createElement("video");
+      v.src = d;
+      v.controls = true;
+      v.playsInline = true;
+      v.style.cssText = "width:100%;height:100%;object-fit:contain;background:#000;display:block";
+      box.replaceChildren(v, fs);
+      clubVidEl = v;
+      v.play().catch(() => {});
+      if (!mySeen[fk]) {
+        mySeen[fk] = 1;
+        it.vw = (it.vw || 0) + 1;
+        paintViews();
+        runTransaction(ref(db, "clubfeed/video/" + fk + "/vw"), x => (x || 0) + 1).catch(() => {});
+        set(ref(db, "clubseen/" + myKey() + "/" + fk), 1).catch(() => {});
+      }
+    } catch (e) {
+      play.textContent = "▶";
+      alert("Не удалось воспроизвести видео.");
+    }
+  });
+  card.appendChild(box);
+  // аталышы
+  const t = document.createElement("div");
+  t.textContent = it.cap || "Видео";
+  t.style.cssText = "padding:12px 12px 0;font-weight:600;font-size:16px";
+  card.appendChild(t);
+  const vw = document.createElement("div");
+  vw.style.cssText = "padding:2px 12px 0;font-size:13px;color:#6b7c73";
+  const paintViews = () => {
+    const n = it.vw || 0, m = n % 100, d = n % 10;
+    vw.textContent = "👁 " + fmtN(n) + " " + (n >= 1000 || (m >= 11 && m <= 14) ? "просмотров" : d === 1 ? "просмотр" : d >= 2 && d <= 4 ? "просмотра" : "просмотров");
+  };
+  paintViews();
+  card.appendChild(vw);
+  // жүктөгөн админ
+  const up = document.createElement("div");
+  up.style.cssText = "display:flex;align-items:center;gap:10px;padding:10px 12px";
+  const uav = makeAvatar("", "");
+  uav.style.cssText += ";width:36px;height:36px;font-size:15px;flex-shrink:0";
+  const un = document.createElement("div");
+  un.style.cssText = "font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap";
+  un.textContent = "…";
+  up.append(uav, un);
+  userInfo(it.by || c.admin, o => {
+    un.textContent = o.name || "Админ";
+    const nav = makeAvatar(o.photo, o.name);
+    nav.style.cssText += ";width:36px;height:36px;font-size:15px;flex-shrink:0";
+    uav.replaceWith(nav);
+  });
+  card.appendChild(up);
+  // кнопкалар
+  const acts = document.createElement("div");
+  acts.style.cssText = "display:flex;gap:8px;padding:0 12px 12px;overflow-x:auto";
+  const mk = (emoji, label) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "vc-b";
+    const e = document.createElement("span");
+    e.textContent = emoji;
+    const n = document.createElement("span");
+    n.textContent = label || "";
+    b.append(e, n);
+    return b;
+  };
+  const bl = mk("👍", "0"), bd = mk("👎", "0"), bc = mk("💬", "0"), bs = mk("↗", "Друзьям"), bv = mk("🔖", "Сохранить");
+  const paint = () => {
+    const my = myReact[fk] || 0;
+    bl.classList.toggle("on", my === 1);
+    bd.classList.toggle("on", my === -1);
+    bl.lastChild.textContent = fmtN(it.lk || 0);
+    bd.lastChild.textContent = fmtN(it.dl || 0);
+    bc.lastChild.textContent = fmtN(it.cm || 0);
+  };
+  paint();
+  bl.addEventListener("click", () => reactPhoto(it, 1, paint));
+  bd.addEventListener("click", () => reactPhoto(it, -1, paint));
+  bc.addEventListener("click", () => openClubComments(it, paint));
+  bs.addEventListener("click", () => openClubShare(it));
+  bv.addEventListener("click", async () => {
+    bv.lastChild.textContent = "…";
+    try {
+      const d = (await get(ref(db, "clubvideov/" + it.cid + "/" + it.k + "/d"))).val();
+      if (!okData(d, "video")) throw new Error("no video");
+      const mime = d.slice(5, d.indexOf(";"));
+      const a = document.createElement("a");
+      a.href = d;
+      a.download = "LimeChat-" + it.k + (mime.indexOf("webm") !== -1 ? ".webm" : mime.indexOf("quicktime") !== -1 ? ".mov" : ".mp4");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      bv.classList.add("on");
+      bv.lastChild.textContent = "Сохранено";
+    } catch (e) {
+      bv.lastChild.textContent = "Сохранить";
+      alert("Не удалось сохранить видео.");
+    }
+  });
+  acts.append(bl, bd, bc, bs, bv);
+  card.appendChild(acts);
+  return card;
+}
+
+function clubFeedHead(c) {
+  const mine = state.groups.some(g => g.id === c.id);
+  const h = document.createElement("div");
+  h.style.cssText = "display:flex;align-items:center;gap:10px;padding:10px 12px;cursor:pointer";
+  h.appendChild(makeAvatar(c.th, c.name));
+  const nm = document.createElement("strong");
+  nm.textContent = c.name;
+  nm.style.cssText = "flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap";
+  const tag = document.createElement("small");
+  tag.textContent = mine ? "✓ в клубе" : "Вступить →";
+  tag.style.cssText = "flex-shrink:0;font-weight:700;color:" + (mine ? "#777" : "#2a9d0a");
+  h.append(nm, tag);
+  h.addEventListener("click", () => openClub(c));
+  return h;
+}
+
+function drawClubSub(list, q) {
+  const sub = clubSub;
+  const say = t => { const e = document.createElement("div"); e.className = "empty"; e.textContent = t; list.appendChild(e); };
+  if (clubsState === "err") { say("Не удалось загрузить клубы. Проверь интернет."); return; }
+  const cache = clubFeedCache[sub];
+  if (!cache || Date.now() - cache.t > 45000) loadClubSub(sub);
+  if (!cache) { say("Загрузка…"); return; }
+  if (cache.err) { say("Не удалось загрузить. Проверь интернет."); return; }
+  const items = cache.items.filter(it => !q || String(it.title || it.cap || "").toLowerCase().indexOf(q) !== -1 || String(it.club.name).toLowerCase().indexOf(q) !== -1);
+  if (!items.length) { say(sub === "photo" ? "Клубы пока не добавили фото." : sub === "video" ? "Клубы пока не добавили видео." : sub === "book" ? "Клубы пока не добавили книги." : "Клубы пока не добавили музыку."); return; }
+  items.forEach(it => {
+    if (sub === "photo") { list.appendChild(buildPhotoCard(it)); return; }
+    if (sub === "video") { list.appendChild(buildVideoCard(it)); return; }
+    const card = document.createElement("div");
+    card.style.cssText = "border-bottom:8px solid #f0f2ef;padding-bottom:10px";
+    card.appendChild(clubFeedHead(it.club));
+    if (sub === "photo" || sub === "video") {
+      const box = document.createElement("div");
+      box.style.cssText = "position:relative;margin:0 12px;border-radius:14px;overflow:hidden;background:#eee;cursor:pointer";
+      if (okData(it.th, "image")) {
+        const im = document.createElement("img");
+        im.src = it.th;
+        im.alt = "";
+        im.style.cssText = "width:100%;display:block;max-height:420px;object-fit:cover";
+        box.appendChild(im);
+      } else box.style.minHeight = "160px";
+      if (sub === "video") {
+        const vb = document.createElement("span");
+        vb.className = "vb";
+        vb.textContent = "▶ " + fmtDur(it.dur || 0);
+        box.appendChild(vb);
+      }
+      box.addEventListener("click", async () => {
+        const base = sub === "photo" ? "clubphoto" : "clubvideo";
+        const item = { key: it.k, owner: "club_" + it.cid, path: base + "/" + it.cid + "/" + it.k, vpath: base + "v/" + it.cid + "/" + it.k, canDel: false, label: it.club.name, noViews: true, cap: it.cap || "", ts: it.ts };
+        if (sub === "video") { item.t = "video"; item.th = it.th; }
+        else {
+          try { const sn = await get(ref(db, base + "/" + it.cid + "/" + it.k + "/d")); item.d = sn.val(); } catch (e) {}
+          if (!okData(item.d, "image")) { alert("Не удалось открыть фото."); return; }
+        }
+        openStory([item], 0);
+      });
+      card.appendChild(box);
+      if (it.cap) {
+        const cp = document.createElement("div");
+        cp.textContent = it.cap;
+        cp.style.cssText = "padding:8px 14px 0;color:#333";
+        card.appendChild(cp);
+      }
+    } else {
+      const isBook = sub === "book";
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;gap:12px;padding:12px;background:#f5f6f7;border-radius:14px;margin:0 12px";
+      const ic = document.createElement("span");
+      ic.className = "ti ti-mask " + (isBook ? "ti-book" : "ti-music");
+      ic.style.cssText = "width:36px;height:36px;flex-shrink:0;color:#2a9d0a";
+      const tx = document.createElement("div");
+      tx.style.cssText = "flex:1;min-width:0";
+      const t = document.createElement("strong");
+      t.textContent = it.title || "";
+      t.style.cssText = "display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap";
+      const sm = document.createElement("small");
+      sm.style.color = "#777";
+      const mb = (it.size || 0) / 1048576;
+      sm.textContent = (!isBook && it.dur ? fmtDur(it.dur) + " · " : "") + (mb >= 0.1 ? mb.toFixed(1) + " МБ" : Math.max(1, Math.round((it.size || 0) / 1024)) + " КБ");
+      tx.append(t, sm);
+      const act = document.createElement("button");
+      act.type = "button";
+      act.style.cssText = "background:#2a9d0a;color:#fff;border-radius:50%;width:42px;height:42px;font-size:18px;flex-shrink:0";
+      act.textContent = isBook ? "📖" : (clubAudioKey === it.k && clubAudio && !clubAudio.paused ? "⏸" : "▶");
+      if (!isBook && clubAudioKey === it.k && clubAudio) { clubAudioBtn = act; act.dataset.play = "1"; }
+      const g = { id: it.cid }, mi = { key: it.k, title: it.title };
+      act.addEventListener("click", () => isBook ? openClubBook(g, mi, act) : toggleClubAudio(g, mi, act));
+      row.append(ic, tx, act);
+      card.appendChild(row);
+    }
+    list.appendChild(card);
+  });
+}
+
+document.querySelectorAll("#clubSub .chip").forEach(b => b.addEventListener("click", () => {
+  clubSub = b.dataset.sub;
+  stopClubAudio();
+  stopClubVideo();
+  if (clubSub !== "list") delete clubFeedCache[clubSub];
+  document.querySelectorAll("#clubSub .chip").forEach(x => x.classList.toggle("on", x === b));
+  renderChats();
+}));
+
+let clubAudio = null, clubAudioKey = null, clubAudioBtn = null, clubFileUp = null;
+let clubVidEl = null;
+function stopClubVideo() {
+  if (clubVidEl) { try { clubVidEl.pause(); } catch (e) {} clubVidEl = null; }
+  document.body.style.overflow = "";
+  document.querySelectorAll(".vbig").forEach(x => x.classList.remove("vbig"));
+}
+function stopClubAudio() {
+  if (clubAudio) { try { clubAudio.pause(); } catch (e) {} clubAudio = null; }
+  clubAudioKey = null;
+  clubAudioBtn = null;
+}
+
+async function renderClubFiles(box, g, target) {
+  const tok = ++cmTok;
+  const isBook = target === "book";
+  const base = isBook ? "clubbook" : "clubmusic";
+  const adm = isClubAdmin(g);
+  if (adm) {
+    const b = document.createElement("button");
+    b.className = "primary-button";
+    b.style.marginTop = "0";
+    b.textContent = isBook ? "➕ Добавить книгу" : "➕ Добавить музыку";
+    b.addEventListener("click", () => {
+      clubFileUp = { gid: g.id, target: target };
+      $(isBook ? "clubBookInput" : "clubMusicInput").click();
+    });
+    box.appendChild(b);
+  }
+  const hint = document.createElement("div");
+  hint.className = "empty";
+  hint.textContent = "Загрузка…";
+  box.appendChild(hint);
+  const items = [];
+  try {
+    const sn = await get(query(ref(db, base + "/" + g.id), limitToLast(100)));
+    sn.forEach(ch => { const v = ch.val(); if (v && v.title) items.push(Object.assign({ key: ch.key }, v)); });
+  } catch (e) { hint.textContent = "Не удалось загрузить."; return; }
+  if (tok !== cmTok || gcur !== g.id || gtab !== target) return;
+  items.reverse();
+  if (adm) backfillFeedFiles(g, target, base, items);
+  hint.remove();
+  if (!items.length) {
+    const e = document.createElement("div");
+    e.className = "empty";
+    e.textContent = isBook ? "Пока нет книг в клубе." : "Пока нет музыки в клубе.";
+    box.appendChild(e);
+    return;
+  }
+  items.forEach(it => {
+    const row = document.createElement("div");
+    row.style.cssText = "display:flex;align-items:center;gap:12px;padding:12px;background:#f5f6f7;border-radius:14px;margin-top:10px";
+    const ic = document.createElement("span");
+    ic.className = "ti ti-mask " + (isBook ? "ti-book" : "ti-music");
+    ic.style.cssText = "width:36px;height:36px;flex-shrink:0;color:#2a9d0a";
+    const tx = document.createElement("div");
+    tx.style.cssText = "flex:1;min-width:0";
+    const t = document.createElement("strong");
+    t.textContent = it.title;
+    t.style.cssText = "display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap";
+    const sm = document.createElement("small");
+    sm.style.color = "#777";
+    const mb = (it.size || 0) / 1048576;
+    sm.textContent = (!isBook && it.dur ? fmtDur(it.dur) + " · " : "") + (mb >= 0.1 ? mb.toFixed(1) + " МБ" : Math.max(1, Math.round((it.size || 0) / 1024)) + " КБ");
+    tx.append(t, sm);
+    const act = document.createElement("button");
+    act.type = "button";
+    act.style.cssText = "background:#2a9d0a;color:#fff;border-radius:50%;width:42px;height:42px;font-size:18px;flex-shrink:0";
+    act.textContent = isBook ? "📖" : (clubAudioKey === it.key && clubAudio && !clubAudio.paused ? "⏸" : "▶");
+    if (!isBook && clubAudioKey === it.key && clubAudio) clubAudioBtn = act;
+    act.addEventListener("click", () => isBook ? openClubBook(g, it, act) : toggleClubAudio(g, it, act));
+    row.append(ic, tx, act);
+    if (adm) {
+      const x = document.createElement("button");
+      x.type = "button";
+      x.textContent = "✖";
+      x.setAttribute("aria-label", "Удалить");
+      x.style.cssText = "background:#eee;border-radius:50%;width:36px;height:36px;color:#a33;flex-shrink:0";
+      x.addEventListener("click", () => {
+        if (!confirm("Удалить «" + it.title + "»?")) return;
+        if (!isBook && clubAudioKey === it.key) stopClubAudio();
+        if (it.fk) remove(ref(db, "clubfeed/" + target + "/" + it.fk)).catch(() => {});
+        Promise.all([remove(ref(db, base + "/" + g.id + "/" + it.key)), remove(ref(db, base + "f/" + g.id + "/" + it.key))])
+          .then(() => { if (gcur === g.id && gtab === target) renderGroupTab(); })
+          .catch(() => alert("Не удалось удалить."));
+      });
+      row.appendChild(x);
+    }
+    box.appendChild(row);
+  });
+}
+
+async function openClubBook(g, it, btn) {
+  btn.textContent = "⏳";
+  try {
+    const sn = await get(ref(db, "clubbookf/" + g.id + "/" + it.key + "/d"));
+    const d = sn.val();
+    if (typeof d !== "string") throw new Error("empty");
+    const blob = await (await fetch(d)).blob();
+    const url = URL.createObjectURL(blob);
+    const w = window.open(url, "_blank");
+    if (!w) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = it.name || it.title;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+    setTimeout(() => URL.revokeObjectURL(url), 120000);
+  } catch (e) { alert("Не удалось открыть книгу."); }
+  btn.textContent = "📖";
+}
+
+async function toggleClubAudio(g, it, btn) {
+  if (clubAudio && clubAudioKey === it.key) {
+    if (clubAudio.paused) { clubAudio.play().catch(() => {}); btn.textContent = "⏸"; } else { clubAudio.pause(); btn.textContent = "▶"; }
+    clubAudioBtn = btn;
+    return;
+  }
+  stopClubAudio();
+  const prev = document.querySelectorAll("#gContent button[data-play], #contactList button[data-play]");
+  prev.forEach(b => { b.textContent = "▶"; });
+  btn.dataset.play = "1";
+  btn.textContent = "⏳";
+  try {
+    const sn = await get(ref(db, "clubmusicf/" + g.id + "/" + it.key + "/d"));
+    const d = sn.val();
+    if (typeof d !== "string") throw new Error("empty");
+    const a = new Audio(d);
+    clubAudio = a;
+    clubAudioKey = it.key;
+    clubAudioBtn = btn;
+    a.addEventListener("ended", () => { if (clubAudioBtn) clubAudioBtn.textContent = "▶"; });
+    await a.play();
+    btn.textContent = "⏸";
+  } catch (e) {
+    stopClubAudio();
+    btn.textContent = "▶";
+    alert("Не удалось воспроизвести.");
+  }
+}
+
+async function addClubFile(file) {
+  const u = clubFileUp, g = u && gById(u.gid);
+  clubFileUp = null;
+  if (!file || !u || !g || !isClubAdmin(g) || !db) return;
+  const isBook = u.target === "book";
+  const max = isBook ? 6 : 8;
+  if (file.size > max * 1048576) { alert("Файл больше " + max + " МБ."); return; }
+  if (!isBook && !(file.type || "").startsWith("audio/")) { alert("Выбери аудиофайл (mp3, m4a, wav)."); return; }
+  const base = isBook ? "clubbook" : "clubmusic";
+  const title = (prompt(isBook ? "Название книги:" : "Название песни:", file.name.replace(/\.[^.]+$/, "").slice(0, 80)) || "").trim().slice(0, 80);
+  if (!title) return;
+  try {
+    const dur = isBook ? 0 : await videoLen(file);
+    const data = await blobToData(file);
+    const k = push(ref(db, base + "/" + u.gid)).key;
+    await set(ref(db, base + "f/" + u.gid + "/" + k), { d: data });
+    await set(ref(db, base + "/" + u.gid + "/" + k), { title: title, name: file.name.slice(0, 120), mime: file.type || "", size: file.size, dur: Math.round(dur || 0), by: myKey(), ts: serverTimestamp() });
+    try {
+      const fk = await pushFeed(u.target, u.gid, k, { title: title, size: file.size, dur: Math.round(dur || 0) });
+      await set(ref(db, base + "/" + u.gid + "/" + k + "/fk"), fk);
+    } catch (e2) {}
+    if (currentView === "groupView" && gcur === u.gid) renderGroupTab();
+  } catch (e) { alert("Не удалось добавить."); }
+}
+$("clubBookInput").addEventListener("change", function () { const f = this.files && this.files[0]; this.value = ""; if (f) addClubFile(f); });
+$("clubMusicInput").addEventListener("change", function () { const f = this.files && this.files[0]; this.value = ""; if (f) addClubFile(f); });
+
 function clubAdd(target) {
   const g = gById(gcur);
   if (!g || !isClubAdmin(g) || !db) return;
@@ -3914,7 +4798,7 @@ $("clubPhotoInput").addEventListener("change", function () {
   if (!f || !f.type.startsWith("image/") || !clubUp) return;
   compress(f, clubUp.target === "story" ? 720 : 800, url => publishClub("photo", url));
 });
-$("clubVidInput").addEventListener("change", async function () {
+  $("clubVidInput").addEventListener("change", async function () {
   const f = this.files && this.files[0];
   this.value = "";
   if (!f || !f.type.startsWith("video/") || !clubUp) return;
@@ -3935,14 +4819,24 @@ async function publishClub(kind, data, th, dur) {
   const cap = (prompt("Подпись (можно пропустить):", "") || "").trim().slice(0, 100);
   const base = u.target === "story" ? "clubstory" : u.target === "photo" ? "clubphoto" : "clubvideo";
   try {
+    let k;
     if (kind === "video") {
-      const k = push(ref(db, base + "/" + u.gid)).key;
+      k = push(ref(db, base + "/" + u.gid)).key;
       await set(ref(db, base + "v/" + u.gid + "/" + k), { d: data });
       await set(ref(db, base + "/" + u.gid + "/" + k), { t: "video", th: th || "", dur: Math.round(dur || 0), cap: cap, by: myKey(), ts: serverTimestamp() });
     } else {
-      await push(ref(db, base + "/" + u.gid), { d: data, cap: cap, by: myKey(), ts: serverTimestamp() });
+      const pr = push(ref(db, base + "/" + u.gid), { d: data, cap: cap, by: myKey(), ts: serverTimestamp() });
+      await pr;
+      k = pr.key;
     }
     if (u.target === "story") set(ref(db, "clubs/" + u.gid + "/st"), serverTimestamp()).catch(() => {});
+    else {
+      try {
+        const extra = kind === "video" ? { th: th || "", dur: Math.round(dur || 0), cap: cap } : { th: await thumbOf(data, 420, 0.7), cap: cap };
+        const fk = await pushFeed(u.target, u.gid, k, extra);
+        await set(ref(db, base + "/" + u.gid + "/" + k + "/fk"), fk);
+      } catch (e2) {}
+    }
     if (currentView === "groupView" && gcur === u.gid) renderGroupTab();
   } catch (e) { alert("Не удалось добавить."); }
 }
@@ -4025,6 +4919,7 @@ $("loginLogo").src = $("logo").src;
 
 $("chatSearch").addEventListener("input", renderChats);
 function setChip(f) {
+  stopClubVideo();
   chatFilter = chatFilter === f ? "" : f;
   $("chipContact").classList.toggle("on", chatFilter === "contact");
   $("chipGroup").classList.toggle("on", chatFilter === "group");
@@ -4535,7 +5430,7 @@ const uiObs = new MutationObserver(muts => {
     uiPending = new Set();
     list.forEach(n => { if (n.isConnected) uiRun(n); });
   }, 80);
-  });
+});
 
 function uiInit() {
   document.documentElement.lang = uiLang;
