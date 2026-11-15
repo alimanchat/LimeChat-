@@ -865,18 +865,49 @@ function markRead(id) {
 function isBlocked(id) { return state.blocked.indexOf(id) !== -1; }
 
 // ---------- Firebase ----------
-let db = null;
 async function loadFirebase() {
   try {
-    const a = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
-    const d = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+    const a = await import(
+      "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"
+    );
+
+    const d = await import(
+      "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"
+    );
+
+    const au = await import(
+      "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"
+    );
+
     ({ initializeApp } = a);
-    ({ getDatabase, ref, push, set, get, remove, onChildAdded, onValue, onDisconnect, query, limitToLast, serverTimestamp, runTransaction } = d);
-    db = getDatabase(initializeApp(firebaseConfig));
+
+    ({
+      getDatabase, ref, push, set, get, remove,
+      onChildAdded, onValue, onDisconnect,
+      query, limitToLast, serverTimestamp, runTransaction
+    } = d);
+
+    ({ getAuth, signInAnonymously } = au);
+
+    const app = initializeApp(firebaseConfig);
+    db = getDatabase(app);
+    auth = getAuth(app);
+
+    const result = await signInAnonymously(auth);
+    myUid = result.user.uid;
+
+    console.log("LimeChat Firebase Auth OK:", myUid);
+
   } catch (e) {
-    console.error(e);
+    console.error("Firebase error:", e);
     db = null;
-    if (window.__showErr) window.__showErr("Не удалось подключиться к Firebase: " + (e && e.message ? e.message : e));
+    auth = null;
+
+    if (window.__showErr) {
+      window.__showErr("Firebase: " + e.message);
+    }
+
+    throw e;
   }
 }
 
