@@ -865,6 +865,9 @@ function markRead(id) {
 function isBlocked(id) { return state.blocked.indexOf(id) !== -1; }
 
 // ---------- Firebase ----------
+let db = null;
+let auth = null;
+
 async function loadFirebase() {
   try {
     const a = await import(
