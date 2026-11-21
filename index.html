@@ -193,6 +193,8 @@ button{cursor:pointer;border:none}
 .cp-tabs button,.gtabs button,.atabs button{color:#444;transition:background .15s,color .15s,box-shadow .15s}
 .cp-tabs button small,.gtabs button small,.atabs button small{color:inherit}
 .ti{width:30px;height:30px;display:block}
+.chip.stc{flex:0 0 auto;padding:9px 18px}
+#stChips::-webkit-scrollbar{display:none}
 #clubSub{display:none;flex:1 1 100%;gap:6px;overflow-x:auto;scrollbar-width:none}
 #clubSub::-webkit-scrollbar{display:none}
 .chip.sub{flex:1 0 auto;padding:7px 12px;font-size:13px}
@@ -362,13 +364,6 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
       <button type="button" class="chip" id="chipGroup">Группа</button>
       <button type="button" class="chip" id="chipMyClub">Мой клуб</button>
       <button type="button" class="chip" id="chipChannel">Клуб</button>
-      <div id="clubSub">
-        <button type="button" class="chip sub on" data-sub="list">Клубы</button>
-        <button type="button" class="chip sub" data-sub="photo">Фото</button>
-        <button type="button" class="chip sub" data-sub="video">Видео</button>
-        <button type="button" class="chip sub" data-sub="book">Книги</button>
-        <button type="button" class="chip sub" data-sub="music">Музыка</button>
-      </div>
     </div>
     <div class="contact-list" id="contactList"></div>
   </section>
@@ -513,9 +508,13 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
 
   <section class="view" id="statusView">
     <div class="profile-content" style="flex:1;min-height:0;padding-top:14px">
-      <div style="display:flex;gap:8px;margin-bottom:12px">
-        <button type="button" class="chip on" id="stChipC">Контакты</button>
-        <button type="button" class="chip" id="stChipK">Клубы</button>
+      <div id="stChips" style="display:flex;gap:8px;margin-bottom:12px;overflow-x:auto;scrollbar-width:none">
+        <button type="button" class="chip stc on" data-st="contacts">Контакты</button>
+        <button type="button" class="chip stc" data-st="clubs">Клубы</button>
+        <button type="button" class="chip stc" data-st="photo">Фото</button>
+        <button type="button" class="chip stc" data-st="video">Видео</button>
+        <button type="button" class="chip stc" data-st="book">Книги</button>
+        <button type="button" class="chip stc" data-st="music">Музыка</button>
       </div>
       <div id="stMine">
         <button class="dashed" id="storyAdd">+ Добавить историю</button>
@@ -697,8 +696,8 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
     <div class="modal-card">
       <h3 id="ccTitle">Новая история</h3>
       <button class="primary-button" id="ccPhoto">🖼️ Фото из галереи</button>
-      <button class="primary-button" id="ccVideo">🎞️ Видео из галереи (до 1 мин)</button>
-      <button class="primary-button" id="ccCam">🎥 Снять видео (до 1 мин)</button>
+      <button class="primary-button" id="ccVideo">🎞️ Видео из галереи</button>
+      <button class="primary-button" id="ccCam">🎥 Снять видео</button>
       <button class="secondary-button" id="ccClose" style="width:100%;margin-top:12px">Закрыть</button>
     </div>
   </div>
@@ -739,7 +738,7 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
       <h3>Новая история</h3>
       <button class="primary-button" id="scPhoto">🖼️ Фото из галереи</button>
       <button class="primary-button" id="scVideo">🎞️ Видео из галереи</button>
-      <button class="primary-button" id="scCam">🎥 Снять видео (до 30 сек)</button>
+      <button class="primary-button" id="scCam">🎥 Снять видео</button>
       <button class="secondary-button" id="scClose" style="width:100%;margin-top:12px">Закрыть</button>
     </div>
       </div>
@@ -787,7 +786,7 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
 
   <div class="modal" id="vidModal" style="background:#000;flex-direction:column;gap:16px;color:#fff">
     <video id="vidPrev" autoplay playsinline muted style="width:min(78vw,300px);height:min(78vw,300px);border-radius:50%;object-fit:cover;background:#222;transform:scaleX(-1)"></video>
-    <div id="vidTime" style="font-size:18px">0:00 / 1:00</div>
+    <div id="vidTime" style="font-size:18px">0:00</div>
     <div style="display:flex;gap:28px">
       <button class="cbtn" id="vidCancel" style="background:#555">✖</button>
       <button class="cbtn" id="vidGo" style="background:#d33">⏺</button>
@@ -1494,7 +1493,8 @@ function showView(viewId) {
   if (viewId === "contactsView") renderContacts();
   if (viewId === "profileView") updateHeader();
   if (viewId === "statusView") loadStories();
-  if (viewId !== "chatsView") { stopClubVideo(); stopClubAudio(); }
+  stopClubVideo();
+  stopClubAudio();
   if (viewId === "albumView") loadAlbum();
   if (viewId === "callsView") renderCalls();
 }
@@ -1599,7 +1599,6 @@ function renderChats() {
   if (chatFilter === "channel" && clubSub === "music" && mus.root && mus.root.isConnected && clubAudio) return;
   if (chatFilter === "channel") listenClubs();
   const list = $("contactList");
-  $("clubSub").style.display = chatFilter === "channel" ? "flex" : "none";
   list.replaceChildren();
   const q = $("chatSearch").value.trim().toLowerCase();
   const hit = id => q ? (state.messages[id] || []).slice().reverse().find(m => String(m.text).toLowerCase().indexOf(q) !== -1) : null;
@@ -3037,8 +3036,9 @@ async function startVoice() {
   if (srPref.on) srStart(r);
 }
 
-// --- кружок (видео до 1 минуты)
+// --- кружок и видео (без ограничения по времени; предел — размер записи в базе)
 let wrec = null;
+const VIDEO_MAX_BYTES = 10 * 1024 * 1024; // потолок размера видео (лимит одной записи в базе ~16 МБ в base64; при 330 кбит/с это около 4 минут)
 async function openVid(mode) {
   const story = mode === "story";
   const album = mode === "album";
@@ -3052,7 +3052,7 @@ async function openVid(mode) {
   try { stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user", width: { ideal: 360 }, height: { ideal: 360 } }, audio: true }); } catch (e) { alert("Нет доступа к камере или микрофону."); return; }
   wrec = { stream: stream, id: id, mr: null, timer: null, t0: 0, send: false, story: story, album: album, club: club };
   $("vidPrev").srcObject = stream;
-  $("vidTime").textContent = story ? "0:00 / 0:30" : "0:00 / 1:00";
+  $("vidTime").textContent = "0:00";
   $("vidGo").textContent = "⏺";
   $("vidModal").classList.add("show");
 }
@@ -3083,7 +3083,7 @@ $("vidGo").addEventListener("click", () => {
   try { mr = makeRecorder(r.stream, "video"); } catch (e) { alert("Запись не поддерживается в этом браузере."); return; }
   r.mr = mr;
   const chunks = [];
-  mr.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+  mr.ondataavailable = e => { if (e.data && e.data.size) { chunks.push(e.data); r.bytes = (r.bytes || 0) + e.data.size; } };
   mr.onstop = async () => {
     const send = r.send, dur = (Date.now() - r.t0) / 1000;
     closeVid();
@@ -3102,13 +3102,13 @@ $("vidGo").addEventListener("click", () => {
     } else sendRich(r.id, { type: "video", text: "⭕ Видеосообщение", dur: Math.round(dur) }, data);
   };
   r.t0 = Date.now();
-  mr.start();
+  mr.start(1000);
   $("vidGo").textContent = "⏹";
   r.timer = setInterval(() => {
     const sec = (Date.now() - r.t0) / 1000;
-    const lim = r.story ? 30 : 60;
-    $("vidTime").textContent = fmtDur(sec) + " / " + fmtDur(lim);
-    if (sec >= lim) finishVid();
+    // без ограничения по времени: останавливаемся только когда запись достигла предела размера
+    $("vidTime").textContent = fmtDur(sec);
+    if ((r.bytes || 0) >= VIDEO_MAX_BYTES) { $("vidTime").textContent = fmtDur(sec) + " · максимум размера"; finishVid(); }
   }, 250);
 });
 $("vidCancel").addEventListener("click", closeVid);
@@ -3198,13 +3198,17 @@ function storyCard(s, list, i, own) {
 let stFeed = "contacts", gBackTo = null;
 async function loadStories() {
   const mine = $("myStories"), others = $("otherStories");
-  $("stMine").style.display = stFeed === "clubs" ? "none" : "";
-  $("stChipC").classList.toggle("on", stFeed !== "clubs");
-  $("stChipK").classList.toggle("on", stFeed === "clubs");
+  const media = stFeed === "photo" || stFeed === "video" || stFeed === "book" || stFeed === "music";
+  // пока играет видео или музыка, ленту не перерисовываем
+  if (stFeed === "video" && clubVidEl && clubVidEl.isConnected) return;
+  if (stFeed === "music" && mus.root && mus.root.isConnected && clubAudio) return;
+  $("stMine").style.display = stFeed === "contacts" ? "" : "none";
+  document.querySelectorAll("#stChips .chip").forEach(b => b.classList.toggle("on", b.dataset.st === stFeed));
   mine.replaceChildren();
   others.replaceChildren();
   const me = state.profile.phone;
   if (!db || !me) return;
+  if (media) { listenClubs(); drawClubSub(others, "", stFeed); return; }
   if (stFeed === "clubs") { await loadClubFeed(others, me); return; }
   const ids = [me].concat(state.contacts.filter(c => !isBlocked(c.id)).map(c => c.id));
   const res = await Promise.all(ids.map(id => get(ref(db, "stories/" + id)).then(sn => {
@@ -3309,8 +3313,13 @@ async function loadClubFeed(others, me) {
   }
 }
 
-$("stChipC").addEventListener("click", () => { stFeed = "contacts"; loadStories(); });
-$("stChipK").addEventListener("click", () => { stFeed = "clubs"; loadStories(); });
+document.querySelectorAll("#stChips .chip").forEach(b => b.addEventListener("click", () => {
+  stopClubAudio();
+  stopClubVideo();
+  stFeed = b.dataset.st;
+  if (stFeed === "photo" || stFeed === "video" || stFeed === "book" || stFeed === "music") delete clubFeedCache[stFeed];
+  loadStories();
+}));
 
 function openStory(list, i) {
   sv = { list: list, i: i };
@@ -3450,7 +3459,7 @@ $("storyVidInput").addEventListener("change", async function () {
   const f = this.files && this.files[0];
   this.value = "";
   if (!f || !f.type.startsWith("video/")) return;
-  if (f.size > 8 * 1024 * 1024) { alert("Видео больше 8 МБ. Выбери короче или сними камерой (до 30 сек)."); return; }
+  if (f.size > VIDEO_MAX_BYTES) { alert("Видео больше 10 МБ — это предел базы данных. Выбери видео поменьше или сними камерой."); return; }
   try {
     const data = await blobToData(f);
     const th = await videoThumb(URL.createObjectURL(f));
@@ -3616,7 +3625,7 @@ function renderGroupTab() {
     b.addEventListener("click", fn);
     box.appendChild(b);
   };
-  const club = g.type === "channel";
+const club = g.type === "channel";
   if (gtab === "members") {
     if (g.preview) say("Список участников виден только тем, кто вступил в клуб.");
     else {
@@ -3876,12 +3885,12 @@ function listenClubs() {
     clubsCache = Object.keys(v).filter(id => v[id] && v[id].name).map(id => ({ id: id, name: String(v[id].name), admin: v[id].admin, count: v[id].count || 0, st: +v[id].st || 0, th: typeof v[id].th === "string" && /^data:image\//.test(v[id].th) ? v[id].th : "" })).reverse();
     clubsState = "ok";
     if (currentView === "chatsView" && chatFilter === "channel") renderChats();
-    if (currentView === "statusView" && stFeed === "clubs") loadStories();
+    if (currentView === "statusView" && stFeed !== "contacts") loadStories();
   }, () => {
     clubsState = "err";
     clubsListening = false;
     if (currentView === "chatsView" && chatFilter === "channel") renderChats();
-    if (currentView === "statusView" && stFeed === "clubs") loadStories();
+    if (currentView === "statusView" && stFeed !== "contacts") loadStories();
   });
 }
 
@@ -4146,6 +4155,7 @@ async function loadClubSub(sub) {
   }
   clubFeedLoading[sub] = false;
   if (currentView === "chatsView" && chatFilter === "channel" && clubSub === sub) renderChats();
+  else if (currentView === "statusView" && stFeed === sub) loadStories();
 }
 
 let myReact = {}, myReactLoaded = false, mySeen = {}, mySeenLoaded = false;
@@ -4174,6 +4184,7 @@ async function joinClubDirect(c) {
     bumpClub(c.id, 1);
     joinedLocal[c.id] = true;
     if (currentView === "chatsView" && chatFilter === "channel") renderChats();
+    else if (currentView === "statusView" && ["photo", "video", "book", "music"].indexOf(stFeed) !== -1) loadStories();
   } catch (e) { alert("Не удалось вступить в клуб."); }
 }
 
@@ -4844,8 +4855,8 @@ function clubFeedHead(c) {
   return h;
 }
 
-function drawClubSub(list, q) {
-  const sub = clubSub;
+function drawClubSub(list, q, subOverride) {
+  const sub = subOverride || clubSub;
   const say = t => { const e = document.createElement("div"); e.className = "empty"; e.textContent = t; list.appendChild(e); };
   if (clubsState === "err") { say("Не удалось загрузить клубы. Проверь интернет."); return; }
   const cache = clubFeedCache[sub];
@@ -5144,9 +5155,8 @@ $("clubVidInput").addEventListener("change", async function () {
   const f = this.files && this.files[0];
   this.value = "";
   if (!f || !f.type.startsWith("video/") || !clubUp) return;
-  if (f.size > 8 * 1024 * 1024) { alert("Видео больше 8 МБ. Выбери короче или сними камерой (до 1 мин)."); return; }
+  if (f.size > VIDEO_MAX_BYTES) { alert("Видео больше 10 МБ — это предел базы данных. Выбери видео поменьше или сними камерой."); return; }
   const d = await videoLen(f);
-  if (d > 61) { alert("Видео длиннее 1 минуты."); return; }
   try {
     const data = await blobToData(f);
     const th = await videoThumb(URL.createObjectURL(f));
