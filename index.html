@@ -195,6 +195,32 @@ button{cursor:pointer;border:none}
 .ti{width:30px;height:30px;display:block}
 .chip.stc{flex:0 0 auto;padding:9px 18px}
 #stChips::-webkit-scrollbar{display:none}
+#stChips{position:sticky;top:0;z-index:6;background:#fff;margin:0 -18px 12px!important;padding:6px 18px 8px}
+#reelModal{z-index:9;background:#000;padding:0;align-items:stretch;justify-content:flex-start;color:#fff}
+#reelScroll{position:absolute;inset:0;overflow-y:scroll;scroll-snap-type:y mandatory;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#reelScroll::-webkit-scrollbar{display:none}
+#reelBack{position:absolute;left:10px;top:10px;z-index:3;width:42px;height:42px;border-radius:50%;background:#0006;color:#fff;font-size:24px;line-height:1}
+.rl{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;background:#111}
+.rl .bg{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(26px) brightness(.5)}
+.rl .main{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:transparent}
+.rl .shade{position:absolute;left:0;right:0;bottom:0;height:48%;background:linear-gradient(transparent,#000c);pointer-events:none}
+.rl .side{position:absolute;right:6px;bottom:96px;display:flex;flex-direction:column;align-items:center;gap:12px;width:74px}
+.rl .upr{position:relative;padding:2px;border-radius:50%;background:linear-gradient(135deg,#ffb300,#e91e63,#7b1fa2);cursor:pointer}
+.rl .upr .avatar{width:54px;height:54px;font-size:26px;border:2px solid #000}
+.rl .upn{max-width:74px;font-size:12px;font-weight:700;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 1px 3px #000}
+.rl .sb{display:flex;flex-direction:column;align-items:center;gap:1px;background:none;color:#fff;font-size:12px;font-weight:700;text-shadow:0 1px 3px #000;padding:2px 0;width:100%}
+.rl .sb .ti{width:34px;height:34px;filter:drop-shadow(0 1px 3px #000)}
+.rl .sb .n{font-size:15px;min-height:18px}
+.rl .sb .l{font-size:11px;font-weight:600;line-height:1.1;text-align:center}
+.rl .bot{position:absolute;left:12px;right:90px;bottom:16px;display:flex;flex-direction:column;gap:8px}
+.rl .cl{display:flex;align-items:center;gap:10px}
+.rl .cl .avatar{width:44px;height:44px;font-size:20px;flex-shrink:0;cursor:pointer;border:2px solid #fff}
+.rl .cl b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:17px;text-shadow:0 1px 3px #000;cursor:pointer}
+.rl .cl .jn{flex-shrink:0;border:1.5px solid #fff;background:#0004;color:#fff;border-radius:20px;padding:7px 16px;font-weight:700;font-size:14px}
+.rl .cl .in{flex-shrink:0;font-size:13px;font-weight:700;color:#cfe;text-shadow:0 1px 3px #000}
+.rl .cap{font-size:15px;line-height:1.35;overflow-wrap:anywhere;text-shadow:0 1px 3px #000;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}
+.rl .cap.open{-webkit-line-clamp:unset;max-height:34vh;overflow-y:auto;display:block}
+.rl .tm{font-size:12px;color:#ddd;text-shadow:0 1px 3px #000}
 #clubSub{display:none;flex:1 1 100%;gap:6px;overflow-x:auto;scrollbar-width:none}
 #clubSub::-webkit-scrollbar{display:none}
 .chip.sub{flex:1 0 auto;padding:7px 12px;font-size:13px}
@@ -769,6 +795,11 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
     </div>
   </div>
 
+  <div class="modal" id="reelModal">
+    <div id="reelScroll"></div>
+    <button id="reelBack" aria-label="Назад">←</button>
+  </div>
+
   <div class="modal" id="storyModal" style="background:#000;padding:0;flex-direction:column;align-items:stretch;justify-content:flex-start;color:#fff">
     <div id="sBars" style="display:flex;gap:4px;padding:12px 12px 0"></div>
     <div style="display:flex;align-items:center;gap:10px;padding:10px 12px">
@@ -842,7 +873,7 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
     d.onclick = function () { d.remove(); };
     document.body.appendChild(d);
   }
-  var BUILD = "2026-11-06-b";
+  var BUILD = "2026-11-22-pg";
   window.__BUILD = BUILD;
   window.__showErr = show;
   window.addEventListener("error", function (e) {
@@ -855,22 +886,174 @@ XkcUluU2C7o2YF46hE1BSD6ZTnFGNcMX1ajbNpU8xYwNOo0Mz1I79E8Uwa/fRtxTZJawA6jQ+0/BeDxV
 })();
  </script>
 <script type="module">
-let initializeApp, getDatabase, getAuth, signInAnonymously;
 let ref, push, set, get, remove;
 let onChildAdded, onValue, onDisconnect;
 let query, limitToLast, serverTimestamp, runTransaction;
 
-// ===== 1. ВСТАВЬТЕ СЮДА КОНФИГ ИЗ FIREBASE =====
-const firebaseConfig = {
-  apiKey: "AIzaSyDtth6ig2m49EiclOj8E3wJYbLpGnnt0Kw",
-  authDomain: "limechat-new.firebaseapp.com",
-  databaseURL: "https://limechat-new-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "limechat-new",
-  storageBucket: "limechat-new.firebasestorage.app",
-  messagingSenderId: "675361287536",
-  appId: "1:675361287536:web:841e2f2370bdfe1fdbf3b5",
-  measurementId: "G-TTX5XWXDM9"
-};
+// ===== LimeChat realtime клиенти (Firebase API'ине окшош, өз серверибизге туташат) =====
+const LC = (function () {
+  const WS_URL = (location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws";
+  let ws = null, isOpen = false, seq = 0, sidSeq = 0, pushN = 0, retry = 0, everOpen = false;
+  const pending = new Map();
+  const outbox = [];
+  const subs = new Map();
+  const connWatchers = new Set();
+  const readyWaiters = [];
+
+  class Snap {
+    constructor(key, val) { this.key = key; this._v = val === undefined ? null : val; }
+    val() { return this._v; }
+    exists() { return this._v !== null && this._v !== undefined; }
+    forEach(fn) {
+      if (this._v && typeof this._v === "object") {
+        for (const k of Object.keys(this._v)) { if (fn(new Snap(k, this._v[k])) === true) return true; }
+      }
+      return false;
+    }
+    toJSON() { return this._v; }
+  }
+
+  function lastKey(p) { const a = p.split("/"); return a[a.length - 1] || null; }
+  function norm(p) { return String(p || "").split("/").filter(Boolean).join("/"); }
+  function mkRef(p) { p = norm(p); return { _p: p, key: lastKey(p), toString() { return p; } }; }
+
+  function connect() {
+    if (ws && (ws.readyState === 0 || ws.readyState === 1)) return;
+    try { ws = new WebSocket(WS_URL); } catch (e) { scheduleRetry(); return; }
+    const mine = ws;
+    mine.onopen = () => {
+      if (mine !== ws) return;
+      isOpen = true; everOpen = true; retry = 0;
+      subs.forEach((s, sid) => {
+        s.skip = new Set(s.got || []);
+        mine.send(JSON.stringify({ op: "sub", sid: sid, path: s.path, kind: s.kind, limit: s.limit }));
+      });
+      while (outbox.length) {
+        const o = outbox.shift();
+        const p = pending.get(o.id);
+        if (p) p.sent = true;
+        mine.send(o.s);
+      }
+      connWatchers.forEach(cb => { try { cb(new Snap("connected", true)); } catch (e) {} });
+      while (readyWaiters.length) readyWaiters.shift()();
+    };
+    mine.onmessage = ev => {
+      let m; try { m = JSON.parse(ev.data); } catch (e) { return; }
+      if (m.id !== undefined) {
+        const p = pending.get(m.id);
+        if (!p) return;
+        pending.delete(m.id);
+        if (m.ok === false) p.reject(new Error(m.err || "server error")); else p.resolve(m);
+        return;
+      }
+      const s = subs.get(m.sid);
+      if (!s) return;
+      if (m.t === "v") {
+        try { s.cb(new Snap(lastKey(s.path), m.val)); } catch (e) { console.error(e); }
+      } else if (m.t === "c") {
+        if (s.skip && s.skip.has(m.key)) { s.skip.delete(m.key); return; }
+        s.got.add(m.key);
+        try { s.cb(new Snap(m.key, m.val)); } catch (e) { console.error(e); }
+      } else if (m.t === "r") {
+        s.skip = null;
+      }
+    };
+    mine.onclose = () => {
+      if (mine !== ws) return;
+      const wasOpen = isOpen;
+      isOpen = false;
+      pending.forEach((p, id) => { if (p.sent) { p.reject(new Error("disconnected")); pending.delete(id); } });
+      if (wasOpen) connWatchers.forEach(cb => { try { cb(new Snap("connected", false)); } catch (e) {} });
+      scheduleRetry();
+    };
+    mine.onerror = () => {};
+  }
+
+  function scheduleRetry() {
+    retry++;
+    setTimeout(connect, Math.min(1000 * retry, 8000));
+  }
+
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && !isOpen) { retry = 0; connect(); } });
+  window.addEventListener("online", () => { if (!isOpen) { retry = 0; connect(); } });
+
+  function request(msg) {
+    return new Promise((resolve, reject) => {
+      const id = ++seq;
+      msg.id = id;
+      const s = JSON.stringify(msg);
+      pending.set(id, { resolve, reject, sent: false });
+      if (isOpen && ws) { pending.get(id).sent = true; ws.send(s); }
+      else outbox.push({ id, s });
+    });
+  }
+
+  function genKey() {
+    return Date.now().toString(36).padStart(9, "0") + (pushN++ % 1296).toString(36).padStart(2, "0") + Math.random().toString(36).slice(2, 8).padEnd(6, "0");
+  }
+
+  ref = (db, p) => mkRef(p);
+  query = (r, ...cons) => { const q = { _p: r._p, key: r.key, _limit: r._limit || 0 }; cons.forEach(c => { if (c && c._limit) q._limit = c._limit; }); return q; };
+  limitToLast = n => ({ _limit: n });
+  serverTimestamp = () => ({ ".sv": "timestamp" });
+
+  set = (r, val) => request({ op: "set", path: r._p, val: val === undefined ? null : val }).then(() => undefined);
+  remove = r => request({ op: "rm", path: r._p }).then(() => undefined);
+  get = q => request({ op: "get", path: q._p, limit: q._limit || 0 }).then(m => new Snap(lastKey(q._p), m.val));
+  push = (r, val) => {
+    const key = genKey();
+    const child = mkRef(r._p + "/" + key);
+    const p = val === undefined ? Promise.resolve(child) : set(child, val).then(() => child);
+    p.key = key; p._p = child._p;
+    return p;
+  };
+
+  function subscribe(q, kind, cb) {
+    const path = q._p;
+    if (path === ".info/connected") {
+      connWatchers.add(cb);
+      if (isOpen) Promise.resolve().then(() => { try { cb(new Snap("connected", true)); } catch (e) {} });
+      return () => connWatchers.delete(cb);
+    }
+    const sid = "s" + (++sidSeq);
+    const s = { path, kind, limit: q._limit || 0, cb, got: new Set(), skip: null };
+    subs.set(sid, s);
+    if (isOpen && ws) ws.send(JSON.stringify({ op: "sub", sid: sid, path: path, kind: kind, limit: s.limit }));
+    return () => {
+      subs.delete(sid);
+      if (isOpen && ws) { try { ws.send(JSON.stringify({ op: "unsub", sid: sid })); } catch (e) {} }
+    };
+  }
+  onValue = (q, cb) => subscribe(q, "v", cb);
+  onChildAdded = (q, cb) => subscribe(q, "c", cb);
+
+  onDisconnect = r => ({
+    set: val => request({ op: "disc", path: r._p, val: val === undefined ? null : val }).then(() => undefined),
+    remove: () => request({ op: "disc", path: r._p, val: null }).then(() => undefined)
+  });
+
+  runTransaction = async (r, fn) => {
+    for (let i = 0; i < 8; i++) {
+      const cur = (await request({ op: "get", path: r._p })).val;
+      const nv = fn(cur === undefined ? null : cur);
+      if (nv === undefined) return { committed: false, snapshot: new Snap(r.key, cur) };
+      const res = await request({ op: "cas", path: r._p, expect: cur === undefined ? null : cur, val: nv });
+      if (res.swapped) return { committed: true, snapshot: new Snap(r.key, nv) };
+    }
+    throw new Error("transaction failed");
+  };
+
+  connect();
+
+  return {
+    db: { lc: true },
+    ready: () => new Promise(resolve => {
+      if (everOpen) return resolve();
+      readyWaiters.push(resolve);
+      setTimeout(resolve, 12000);
+    })
+  };
+})();
 // ================================================
 
 (function () {
@@ -897,49 +1080,9 @@ let db = null;
 let auth = null;
 
 async function loadFirebase() {
-  try {
-    const a = await import(
-      "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"
-    );
-
-    const d = await import(
-      "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"
-    );
-
-    const au = await import(
-      "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"
-    );
-
-    ({ initializeApp } = a);
-
-    ({
-      getDatabase, ref, push, set, get, remove,
-      onChildAdded, onValue, onDisconnect,
-      query, limitToLast, serverTimestamp, runTransaction
-    } = d);
-
-    ({ getAuth, signInAnonymously } = au);
-
-    const app = initializeApp(firebaseConfig);
-    db = getDatabase(app);
-    auth = getAuth(app);
-
-    const result = await signInAnonymously(auth);
-    myUid = result.user.uid;
-
-    console.log("LimeChat Firebase Auth OK:", myUid);
-
-  } catch (e) {
-    console.error("Firebase error:", e);
-    db = null;
-    auth = null;
-
-    if (window.__showErr) {
-      window.__showErr("Firebase: " + e.message);
-    }
-
-    throw e;
-  }
+  db = LC.db;
+  auth = null;
+  await LC.ready();
 }
 
 let myUid = "";
@@ -1697,7 +1840,7 @@ function renderMessages() {
 async function addContact() {
   const key = normPhone($("newContactName").value, addC);
   if (!key) { alert("Введи номер полностью. Если номер из другой страны, выбери её флаг."); return; }
-  if (!db) { alert("Firebase не настроен."); return; }
+  if (!db) { alert("Нет подключения к серверу."); return; }
 
   if (key === myKey()) { alert("Это твой номер."); return; }
   if (state.contacts.some(c => c.id === key)) { alert("Такой контакт уже существует."); return; }
@@ -1727,7 +1870,7 @@ async function addContact() {
 function sendMessage(event) {
   event.preventDefault();
   if (!state.activeContact) return;
-  if (!db) { alert("Firebase не настроен."); return; }
+  if (!db) { alert("Нет подключения к серверу."); return; }
 
   const input = $("messageInput");
   const text = input.value.trim();
@@ -1832,7 +1975,7 @@ $("chatClear").addEventListener("click", () => {
   saveState();
   renderMessages();
   renderChats();
-});
+  });
 
 $("closeMenu").addEventListener("click", () => {
   $("menuModal").classList.remove("show");
@@ -2396,7 +2539,7 @@ document.querySelector(".app > .header").addEventListener("click", e => {
   else if (e.target.closest("#callHistory")) showView("callsView");
 });
 
-// ---------- Звонки (WebRTC, сигналы через Firebase) ----------
+// ---------- Звонки (WebRTC, сигналы через сервер) ----------
 let pc = null, localStream = null, callPeer = null, callRole = null, incomingCall = null, callUnsubs = [], pendingIce = [], callTimer = null;
 const ICE = { iceServers: [{ urls: "stun:stun.l.google.com:19302" }] };
 
@@ -2980,7 +3123,7 @@ function paintRecTx() {
 
     message.addEventListener("click", () => askDelete(item));
   }
-}
+  }
 
 // --- голосовое
 let vrec = null;
@@ -3287,6 +3430,8 @@ async function loadClubFeed(others, me) {
     blocks.push({ c: c, live: live, adm: adm, fresh: live.some(x => !(x.views || {})[me]), last: live[live.length - 1].ts || 0 });
   });
   blocks.sort((a, b) => (b.fresh ? 1 : 0) - (a.fresh ? 1 : 0) || b.last - a.last);
+  clubStoryAll = [];
+  blocks.forEach(b => b.live.forEach(x => clubStoryAll.push(x)));
   blocks.forEach(b => {
     const head = document.createElement("div");
     head.className = "shead2";
@@ -3308,7 +3453,7 @@ async function loadClubFeed(others, me) {
     const e = document.createElement("div");
     e.className = "empty";
     e.style.color = "#a33";
-    e.textContent = "Истории клубов не загрузились: нет доступа к базе (проверь правила Firebase для clubstory).";
+    e.textContent = "Истории клубов не загрузились: нет доступа к базе (проверь подключение).";
     others.appendChild(e);
   }
 }
@@ -3321,7 +3466,282 @@ document.querySelectorAll("#stChips .chip").forEach(b => b.addEventListener("cli
   loadStories();
 }));
 
+// ---------- Полноэкранный просмотр (как TikTok): листай вверх — следующий клуб ----------
+const reel = { items: [], slides: [], idx: -1, io: null, dirty: false };
+let clubStoryAll = [];
+
+function rlBtn(icon, label) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "sb";
+  const i = document.createElement("span");
+  i.className = "ti ti-mask " + icon;
+  const n = document.createElement("span");
+  n.className = "n";
+  const l = document.createElement("span");
+  l.className = "l";
+  l.textContent = label;
+  b.append(i, n, l);
+  b.set = (cnt, col) => { n.textContent = cnt === null ? "" : fmtN(cnt || 0); b.style.color = col || "#fff"; };
+  b.set(null);
+  return b;
+}
+
+function reelStoryItem(s) {
+  const id = String(s.owner || "").replace(/^club_/, "");
+  const c = clubsCache.find(z => z.id === id) || { id: id, name: s.label || "Клуб", th: "", admin: "" };
+  return { kind: "story", s: s, club: c, cap: s.cap || "", ts: s.ts, by: s.by || c.admin || "", video: s.t === "video", th: s.t === "video" ? s.th : s.d };
+}
+function reelPhotoItem(it) {
+  return { kind: "photo", it: it, club: it.club, cap: it.cap || "", ts: it.ts, by: it.by || (it.club && it.club.admin) || "", video: false, th: it.th };
+}
+
+function buildReelSlide(x) {
+  const c = x.club;
+  const sl = document.createElement("section");
+  sl.className = "rl";
+  const bg = document.createElement("div");
+  bg.className = "bg";
+  if (okData(x.th, "image")) bg.style.backgroundImage = 'url("' + x.th + '")';
+  let main;
+  if (x.video) {
+    main = document.createElement("video");
+    main.playsInline = true;
+    main.loop = true;
+    main.preload = "auto";
+    if (okData(x.th, "image")) main.poster = x.th;
+    main.addEventListener("click", () => { if (main.paused) main.play().catch(() => {}); else main.pause(); });
+  } else {
+    main = document.createElement("img");
+    main.alt = "";
+    if (okData(x.th, "image")) main.src = x.th;
+  }
+  main.className = "main";
+  const shade = document.createElement("div");
+  shade.className = "shade";
+  sl.append(bg, main, shade);
+
+  // ---- справа: профиль того, кто загрузил (админ) + кнопки
+  const side = document.createElement("div");
+  side.className = "side";
+  const upr = document.createElement("div");
+  upr.className = "upr";
+  let uav = makeAvatar("", "");
+  upr.appendChild(uav);
+  const upn = document.createElement("div");
+  upn.className = "upn";
+  upr.addEventListener("click", () => {
+    if (!x.by) return;
+    closeReel();
+    openCP(x.by, currentView === "statusView" ? "statusView" : undefined);
+  });
+  userInfo(x.by, o => {
+    upn.textContent = o.name ? "@" + o.name : "";
+    const nav = makeAvatar(o.photo, o.name);
+    upr.replaceChildren(nav);
+  });
+  side.append(upr, upn);
+
+  if (x.kind === "photo") {
+    const it = x.it;
+    const bl = rlBtn("ti-like", "Нравится"), bd = rlBtn("ti-like", "Не нравится"), bs = rlBtn("ti-share", "Друзьям"), bc = rlBtn("ti-cmt", "Комментарии"), bdl = rlBtn("ti-dl", "Сохранить");
+    bd.firstChild.style.transform = "scaleY(-1)";
+    const paint = () => {
+      const my = myReact[it.fk] || 0;
+      bl.set(it.lk || 0, my === 1 ? "#4da3ff" : "#fff");
+      bd.set(it.dl || 0, my === -1 ? "#ff6b5e" : "#fff");
+      bc.set(it.cm || 0, "#fff");
+    };
+    const repaint = () => { paint(); reel.dirty = true; };
+    paint();
+    bl.addEventListener("click", () => reactPhoto(it, 1, repaint));
+    bd.addEventListener("click", () => reactPhoto(it, -1, repaint));
+    bc.addEventListener("click", () => openClubComments(it, repaint));
+    bs.addEventListener("click", () => openClubShare(it));
+    bdl.addEventListener("click", () => downloadClubPhoto(it));
+    side.append(bl, bd, bs, bc, bdl);
+  } else {
+    const bdl = rlBtn("ti-dl", "Сохранить");
+    bdl.addEventListener("click", () => {
+      const d = x.video ? x.s.dv : x.s.d;
+      if (!okData(d, x.video ? "video" : "image")) { alert("Подожди, пока загрузится."); return; }
+      const a = document.createElement("a");
+      a.href = d;
+      a.download = "LimeChat-" + (x.s.key || "story") + (x.video ? ".mp4" : ".jpg");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+    side.appendChild(bdl);
+  }
+
+  // ---- снизу: профиль клуба (название, вступить) + подпись
+  const bot = document.createElement("div");
+  bot.className = "bot";
+  const cl = document.createElement("div");
+  cl.className = "cl";
+  const cav = makeAvatar(c.th, c.name);
+  const openC = () => { closeReel(); openClub(c); };
+  cav.addEventListener("click", openC);
+  const cn = document.createElement("b");
+  cn.textContent = c.name;
+  cn.addEventListener("click", openC);
+  cl.append(cav, cn);
+  const paintJoin = () => {
+    cl.querySelectorAll(".jn,.in").forEach(e => e.remove());
+    if (isClubMember(c.id)) {
+      const tag = document.createElement("span");
+      tag.className = "in";
+      tag.textContent = "✓ в клубе";
+      cl.appendChild(tag);
+    } else {
+      const jb = document.createElement("button");
+      jb.type = "button";
+      jb.className = "jn";
+      jb.textContent = "Вступить";
+      jb.addEventListener("click", async () => {
+        jb.disabled = true;
+        jb.style.opacity = ".6";
+        await joinClubDirect(c);
+        reel.dirty = true;
+        paintJoin();
+      });
+      cl.appendChild(jb);
+    }
+  };
+  paintJoin();
+  bot.appendChild(cl);
+  if (x.cap) {
+    const cp = document.createElement("div");
+    cp.className = "cap";
+    cp.textContent = x.cap;
+    cp.addEventListener("click", () => cp.classList.toggle("open"));
+    bot.appendChild(cp);
+  }
+  if (x.ts) {
+    const tm = document.createElement("div");
+    tm.className = "tm";
+    tm.textContent = new Date(x.ts).toLocaleDateString("ru-RU", { day: "numeric", month: "long" }) + " · " + fmtTime(x.ts);
+    bot.appendChild(tm);
+  }
+  sl.append(side, bot);
+  return { el: sl, main: main, loaded: false, loading: false };
+}
+
+async function reelLoad(i) {
+  const o = reel.slides[i], x = reel.items[i];
+  if (!o || o.loaded || o.loading || !x) return;
+  o.loading = true;
+  try {
+    if (x.kind === "photo") {
+      if (!x.full) {
+        const d = (await get(ref(db, "clubphoto/" + x.it.cid + "/" + x.it.k + "/d"))).val();
+        if (okData(d, "image")) x.full = d;
+      }
+      if (x.full) o.main.src = x.full;
+    } else if (x.video) {
+      const st = x.s;
+      if (!st.dv) {
+        const v = (await get(ref(db, st.vpath || ("storyvid/" + st.owner + "/" + st.key)))).val();
+        st.dv = v && okData(v.d, "video") ? v.d : "";
+      }
+      if (st.dv) o.main.src = st.dv;
+    } else if (okData(x.s.d, "image")) {
+      o.main.src = x.s.d;
+    }
+    o.loaded = true;
+  } catch (e) {}
+  o.loading = false;
+  if (reel.idx === i && x.video && o.main.src) reelPlay(i);
+}
+
+function reelPlay(i) {
+  const o = reel.slides[i];
+  if (!o || !reel.items[i] || !reel.items[i].video) return;
+  o.main.muted = false;
+  o.main.play().catch(() => { o.main.muted = true; o.main.play().catch(() => {}); });
+}
+
+function reelActive(i) {
+  if (i === reel.idx) return;
+  reel.idx = i;
+  const me = myKey();
+  reel.slides.forEach((o, k) => {
+    const x = reel.items[k];
+    if (x.video && k !== i) { try { o.main.pause(); } catch (e) {} }
+    if (Math.abs(k - i) > 2 && o.loaded) {
+      // далеко от экрана — освобождаем память
+      o.main.removeAttribute("src");
+      if (x.video) o.main.load();
+      else if (okData(x.th, "image")) o.main.src = x.th;
+      o.loaded = false;
+    }
+  });
+  [i, i + 1, i - 1].forEach(k => { if (k >= 0 && k < reel.slides.length) reelLoad(k); });
+  reelPlay(i);
+  const x = reel.items[i];
+  if (x.kind === "story") {
+    const s = x.s, views = s.views || (s.views = {});
+    const own = s.canDel !== undefined ? s.canDel : false;
+    if (!own && !views[me] && !s.noViews) {
+      views[me] = true;
+      reel.dirty = true;
+      set(ref(db, (s.path || ("stories/" + s.owner + "/" + s.key)) + "/views/" + me), true).catch(() => {});
+    }
+  }
+}
+
+function openReel(items, start) {
+  if (!items.length) return;
+  stopClubAudio();
+  stopClubVideo();
+  reel.items = items;
+  reel.idx = -1;
+  reel.dirty = false;
+  const box = $("reelScroll");
+  box.replaceChildren();
+  reel.slides = items.map(x => buildReelSlide(x));
+  reel.slides.forEach(o => box.appendChild(o.el));
+  $("reelModal").classList.add("show");
+  if (reel.io) reel.io.disconnect();
+  reel.io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting && e.intersectionRatio >= 0.6) reelActive(reel.slides.findIndex(o => o.el === e.target)); });
+  }, { root: box, threshold: [0.6] });
+  reel.slides.forEach(o => reel.io.observe(o.el));
+  const st = Math.max(0, Math.min(start || 0, items.length - 1));
+  box.scrollTop = st * box.clientHeight;
+  requestAnimationFrame(() => { box.scrollTop = st * box.clientHeight; reelActive(st); });
+}
+
+function closeReel() {
+  if (!$("reelModal").classList.contains("show")) return;
+  reel.slides.forEach(o => { try { o.main.pause(); } catch (e) {} });
+  if (reel.io) { reel.io.disconnect(); reel.io = null; }
+  $("reelModal").classList.remove("show");
+  $("reelScroll").replaceChildren();
+  reel.slides = [];
+  reel.items = [];
+  reel.idx = -1;
+  if (reel.dirty) {
+    reel.dirty = false;
+    if (currentView === "statusView") loadStories();
+    else if (currentView === "chatsView") renderChats();
+  }
+}
+$("reelBack").addEventListener("click", closeReel);
+
+function openPhotoReel(it) {
+  const arr = (clubFeedCache.photo && clubFeedCache.photo.items && clubFeedCache.photo.items.length) ? clubFeedCache.photo.items : [it];
+  const k = Math.max(0, arr.findIndex(z => z.fk === it.fk));
+  openReel(arr.map(reelPhotoItem), k);
+}
+
 function openStory(list, i) {
+  const s0 = list[i];
+  if (s0 && String(s0.owner || "").indexOf("club_") === 0 && currentView === "statusView" && stFeed === "clubs") {
+    const k = clubStoryAll.indexOf(s0);
+    if (k !== -1) { openReel(clubStoryAll.map(reelStoryItem), k); return; }
+  }
   sv = { list: list, i: i };
   $("storyModal").classList.add("show");
   showStory();
@@ -4021,15 +4441,7 @@ async function renderClubMedia(box, g, target) {
       const v = ch.val();
       if (v && (v.t === "video" || okData(v.d, "image"))) items.push(Object.assign({ key: ch.key, owner: "club_" + g.id }, v));
     });
-  } catch (e) { hint.textContent = "Не удалось загрузить."; return; }
-  if (tok !== cmTok || gcur !== g.id || gtab !== tabName) return;
-  if (target === "story") {
-    const live = items.filter(x => Date.now() - (x.ts || Date.now()) < DAY);
-    if (adm) items.filter(x => live.indexOf(x) === -1).forEach(x => {
-      remove(ref(db, base + "/" + g.id + "/" + x.key)).catch(() => {});
-      if (x.t === "video") remove(ref(db, base + "v/" + g.id + "/" + x.key)).catch(() => {});
-    });
-    items = live.sort((a, b) => (a.ts || Date.now()) - (b.ts || Date.now()));
+      items = live.sort((a, b) => (a.ts || Date.now()) - (b.ts || Date.now()));
   } else items.reverse();
   items.forEach(x => {
     x.path = base + "/" + g.id + "/" + x.key;
@@ -4240,6 +4652,8 @@ function buildPhotoCard(it) {
     im.style.cssText = "width:100%;display:block;max-height:380px;object-fit:cover";
     box.appendChild(im);
   } else box.style.minHeight = "160px";
+  box.style.cursor = "pointer";
+  box.addEventListener("click", () => openPhotoReel(it));
   card.appendChild(box);
   if (it.cap) {
     const cp = document.createElement("div");
@@ -5717,7 +6131,7 @@ function uiCollect(root, items) {
       items.push({ el: el, at: at, src: uiNorm(v), raw: v });
     });
   });
-}
+  }
 
 async function uiOne(s) {
   try {
@@ -5884,7 +6298,7 @@ showView("chatsView");
 function startOnline() {
   $("loginModal").classList.remove("show");
   updateHeader();
-  if (!db) { alert("Нет подключения к Firebase."); return; }
+  if (!db) { alert("Нет подключения к серверу."); return; }
   get(ref(db, "users/" + state.profile.phone)).then(snap => {
     const v = snap.val();
     if (v) {
@@ -5903,7 +6317,7 @@ function startOnline() {
       const pr = ref(db, "presence/" + state.profile.phone);
       onDisconnect(pr).set({ on: false, ts: serverTimestamp() }).then(() => set(pr, { on: true, ts: serverTimestamp() }));
     });
-  }).catch(() => alert("Нет связи с Firebase. Проверьте правила базы."));
+  }).catch(() => alert("Нет связи с сервером. Попробуй ещё раз."));
 }
 
 $("loginButton").addEventListener("click", function () {
@@ -5920,44 +6334,22 @@ if (state.profile.phone) fbReady.then(startOnline); else $("loginModal").classLi
 
 })();
 </script>
-<!-- Счётчик посещений через Firebase -->
+<!-- Счётчик посещений -->
 <div style="text-align:center;padding:16px;color:#888;font-size:13px">
-  👀 Посетителей: <b id="visit-count" style="color:#c9a227">...</b><br><span style="font-size:11px">версия 11.10-в</span>
+  👀 Посетителей: <b id="visit-count" style="color:#c9a227">...</b><br><span style="font-size:11px">версия 12.0-pg</span>
 </div>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getDatabase, ref, runTransaction, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCR1-javU3E3VnLJpEY5N61WggV03r24KM",
-    authDomain: "my--chat-7db98.firebaseapp.com",
-    databaseURL: "https://my--chat-7db98-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "my--chat-7db98",
-    storageBucket: "my--chat-7db98.firebasestorage.app",
-    messagingSenderId: "740490057583",
-    appId: "1:740490057583:web:fddeb33ad95bf35047ba9a"
-  };
-
-  try {
-    const db = getDatabase(initializeApp(firebaseConfig, "visitCounter"));
-    const el = document.getElementById("visit-count");
-    const visited = localStorage.getItem("aliman_visited");
-    const counterRef = ref(db, "analytics/total_visits");
-
-    if (visited) {
-      get(counterRef).then(snap => { el.textContent = snap.val() || 0; }).catch(() => { el.textContent = "—"; });
-    } else {
-      runTransaction(counterRef, cur => (cur || 0) + 1)
-        .then(res => {
-          el.textContent = res.snapshot.val() || 1;
-          localStorage.setItem("aliman_visited", "true");
-        })
-        .catch(() => { el.textContent = "—"; });
-    }
-  } catch (e) {
-    console.error(e);
-  }
+<script>
+(function () {
+  var el = document.getElementById("visit-count"), seen = null;
+  try { seen = localStorage.getItem("aliman_visited"); } catch (e) {}
+  fetch("/api/visit", { method: seen ? "GET" : "POST" })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      el.textContent = d.count || 0;
+      if (!seen) { try { localStorage.setItem("aliman_visited", "true"); } catch (e) {} }
+    })
+    .catch(function () { el.textContent = "—"; });
+})();
 </script>
 <script>
 if ("serviceWorker" in navigator && /^https?:/.test(location.protocol)) {
